@@ -1,0 +1,51 @@
+from django.urls import path
+from . import views
+
+
+urlpatterns = [
+  path('',views.index,name="decks"),
+  path('all_leaders',views.all_leaders,name="all_leaders"),
+  path('zoro_op01', views.zoro_op01, name="zoro_op01"),
+  path('law_op01', views.law_op01, name="law_op01"),
+  path('luffy_op01', views.luffy_op01, name="luffy_op01"),
+  path('oden_op01', views.oden_op01, name="oden_op01"),
+  path('doflamingo_op01', views.doflamingo_op01, name="doflamingo_op01"),
+  path('kaido_op01', views.kaido_op01, name="kaido_op01"),
+  path('crocodile_op01', views.crocodile_op01, name="crocodile_op01"),
+  path('king_op01', views.king_op01, name="king_op01"),
+  path('whitebeard_op02', views.whitebeard_op02, name="whitebeard_op02"),
+  path('garp_op02', views.garp_op02, name="garp_op02"),
+  path('kinemon_op02', views.kinemon_op02, name="kinemon_op02"),
+  path('sanji_op02', views.sanji_op02, name="sanji_op02"),
+  path('ivankov_op02', views.ivankov_op02, name="ivankov_op02"),
+  path('magulon_op02', views.magulon_op02, name="magulon_op02"),
+  path('zephyr_op02', views.zephyr_op02, name="zephyr_op02"),
+  path('smoker_op02', views.smoker_op02, name="smoker_op02"),
+  path('ace_op03', views.ace_op03, name="ace_op03"),
+  path('kuro_op03', views.kuro_op03, name="kuro_op03"),
+  path('arlong_op03', views.arlong_op03, name="arlong_op03"),
+  path('nami_op03', views.nami_op03, name="nami_op03"),
+  path('rizzburg_op03', views.rizzburg_op03, name="rizzburg_op03"),
+  path('bobgucci_op03', views.bobgucci_op03, name="bobgucci_op03"),
+  path('linlin_op03', views.linlin_op03, name="linlin_op03"),
+  path('katakuri_op03', views.katakuri_op03, name="katakuri_op03"),
+  path('vivi_op04', views.vivi_op04, name="vivi_op04"),
+  path('doflamingo_op04', views.doflamingo_op04, name="doflamingo_op04"),
+  path('issho_op04', views.issho_op04, name="issho_op04"),
+  path('rebecca_op04', views.rebecca_op04, name="rebecca_op04"),
+  path('queen_op04', views.queen_op04, name="queen_op04"),
+  path('crocodile_op04', views.crocodile_op04, name="crocodile_op04"),
+  path('luffy_st01', views.luffy_st01, name="luffy_st01"),
+  path('kid_st02', views.kid_st02, name="kid_st02"),
+  path('crocodile_st03', views.crocodile_st03, name="crocodile_st03"),
+  path('kaido_st04', views.kaido_st04, name="kaido_st04"),
+  path('shanks_st05', views.shanks_st05, name="shanks_st05"),
+  path('sakazuki_st06', views.sakazuki_st06, name="sakazuki_st06"),
+  path('linlin_st07', views.linlin_st07, name="linlin_st07"),
+  path('luffy_st08', views.luffy_st08, name="luffy_st08"),
+  path('yamato_st09', views.yamato_st09, name="yamato_st09"),
+  path('uta_p011', views.uta_p011, name="uta_p011"),
+  
+  
+    
+]

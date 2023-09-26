@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'css/leader_view.css' %}" rel="stylesheet">
+
+<div class="grid-container-leader" >
+  {% for leader in leaders %}
+    <div class="grid-item text-center">
+      <a href="{% url leader.url %}">
+      <img src="static/img/{{ leader.id }}.png" height="192" width="137.4"   />
+      <h6>{{leader.name}}</h6>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+  
+
+{% endblock content %}

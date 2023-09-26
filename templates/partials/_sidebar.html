@@ -1,0 +1,79 @@
+{% load static %}
+
+
+
+  <div class="container-fluid text-center mt-5">
+    <div class="row">
+      
+      
+    
+    <nav class="col-md-2 bg-light sidebar text-center">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <hr></hr>
+              
+              
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'all_leaders'%}">
+             All Leaders
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'collector' %}">
+              Card Collector
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'collector' %}">
+              Site Guide
+            </a>
+          </li>
+          
+    <hr></hr>
+          <h5> Watched Leaders: </h5>
+          
+              
+            </a>
+          </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'doflamingo_op04'%}">
+              Doflamingo OP04
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'doflamingo_op01'%}">
+              
+              Doflamingo OP01
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'law_op01'%}">
+              
+              Law 0P01
+            </a>
+          </li>
+          
+          
+        </ul>
+    
+          <hr></hr>
+          <h5>Settings: </h5>
+        
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'preferences'%}">
+              <span data-feather="file-text"></span>
+              General
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Account
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>

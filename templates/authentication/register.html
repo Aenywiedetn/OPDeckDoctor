@@ -1,0 +1,82 @@
+
+{% extends 'base_auth.html' %} 
+{% load static %}
+
+{% block content %}
+<style>
+  .showPasswordToggle{
+  cursor: pointer;
+  transition: all;
+  pointer-events: auto;
+}
+.showPasswordToggle:hover{
+  transform: scale(1.2);
+}
+</style>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+   <div class="card mt-5">
+    
+<div class="card-body">
+  <div class="card-title py-3 ">
+    <h4>Register for a free account</h4>
+  </div>
+
+
+      <form action="{% url 'register' %}" method="post">
+
+        {% csrf_token %}
+        {% include 'partials/_messages.html' %}
+        <div class="form-group">
+          <input 
+            type="text" 
+            name="username" 
+            placeholder="Username"
+            id="usernameField" 
+            class="form-control form-control-sm" 
+            value="{{fieldValues.username}}"
+            />
+        </div>
+        <div class="invalid_feedback invalid-feedback" style="display:none">
+        </div>
+        
+        <div class="form-group pt-2">
+          <input 
+            type="email" 
+            name="email"
+            placeholder="Email"
+            id="emailField"
+            class="form-control form-control-sm" 
+
+            value="{{fieldValues.email}}"
+            />
+        </div>
+        <div class="emailFeedBackArea invalid-feedback" style="display:none">
+        </div>
+        <div class="form-group pt-2">
+          <input 
+            type="password" 
+            name="password" 
+            placeholder="Password"
+            id="passwordField" 
+            class="form-control form-control-sm" 
+            />
+            <div class="passwordFeedBackArea invalid-feedback" style="display:none">
+            </div>
+
+          <small class="float-end showPasswordToggle" >show</small>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto pt-4">
+        <input type="submit" value="Register" class="btn btn-block btn-primary gasnie" />
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+
+<script src="{% static 'js/register.js' %}"></script>
+
+{% endblock content %}

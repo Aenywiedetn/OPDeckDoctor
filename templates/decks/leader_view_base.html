@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'css/leader_view.css' %}" rel="stylesheet">
+
+
+<div class="row">
+  <div class="col-md-6 mb-5">
+    <img src="static/img/{{ deck_info.leader }}.png" class="border" />
+  </div>
+  <div class="col-md-6 text-center">
+    <h1> {{ deck_info.leader }} </h1>
+    <h1> <strong> {{deck_info.name}} </strong> </h1>
+    <h2><strong>{{ deck_info.color1 }} {{ deck_info.color2 }}</strong></h2>
+    <hr></hr>
+    <h2> This Leader has {{ deck_counter }} decklists submitted! </h2>
+    <h1><strong> XD tu bydo filtry i inne takie chyba, albo nie wiem, opis </strong></h1>
+  </div>
+</div>
+
+<hr></hr>
+<h1> Average number of cards included from {{ deck_counter }} decklists </h1>
+
+<div class="grid-container " >
+  {% for zestaw in sorted_avg %}
+    <div class="grid-item ">
+      <img src="static/img/{{ zestaw.1 }}.png" height="128" width="91.6"  />
+      <h6>{{ zestaw.0 }}</h6>
+    </div>
+  {% endfor %}
+</div>
+  
+{% for data in decklist_data %}
+  <hr></hr>
+  <h1>Decklist {{ data.index }}</h1>
+  {% for deck_id in data.decklist %}
+    <img src="static/img/{{deck_id}}.png" height="128" width="91.6" />
+  {% endfor %}
+  <h6> Credits: OPTopdecks.com Format: {{data.format}} </h6>
+{% endfor %}
+
+
+{% endblock content %}

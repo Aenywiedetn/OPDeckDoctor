@@ -1,1 +1,0 @@
-web: gunicorn OPDeckDoctor2.wsgi

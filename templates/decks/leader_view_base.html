@@ -12,9 +12,24 @@
     <h1> {{ deck_info.leader }} </h1>
     <h1> <strong> {{deck_info.name}} </strong> </h1>
     <h2><strong>{{ deck_info.color1 }} {{ deck_info.color2 }}</strong></h2>
+    <br><br>
     <hr></hr>
     <h2> This Leader has {{ deck_counter }} decklists submitted! </h2>
-    <h1><strong> XD tu bydo filtry i inne takie chyba, albo nie wiem, opis </strong></h1>
+    <hr></hr>
+    <br><br>
+    <h3><strong> Decklist Format </strong></h3>
+    <ul class="filters">
+      <li class="active" data-filter="*"><a href="#!"> Both </a></li>
+      <li data-filter=".TCG"><a href="#!"> TCG </a></li>
+      <li data-filter=".OCG"><a href="#!"> OCG </a></li>
+    </ul>
+    <br><br>
+    <h3><strong> Decklist Set </strong></h3>
+    <ul class="filters">
+      <li><a href="#!"> All </a></li>
+      <li><a href="#!"> OP04 </a></li>
+      <li><a href="#!"> OP05 </a></li>
+    </ul>
   </div>
 </div>
 
@@ -29,15 +44,21 @@
     </div>
   {% endfor %}
 </div>
-  
+<div class="projects">
 {% for data in decklist_data %}
+  <div class="item {{data.format}} ">
   <hr></hr>
   <h1>Decklist {{ data.index }}</h1>
   {% for deck_id in data.decklist %}
     <img src="static/img/{{deck_id}}.png" height="128" width="91.6" title="{{deck_id}}"/>
   {% endfor %}
   <h6> Credits: OPTopdecks.com Format: {{data.format}} </h6>
+  </div>
 {% endfor %}
+</div>
 
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="static/js/isotope.min.js"></script>
+<script src="static/js/script.js"></script>  
 {% endblock content %}

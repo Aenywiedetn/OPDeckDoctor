@@ -1,5 +1,56 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<h1> Funkcja w produkcji, pozdrawiam </h1>
+<link href="{% static 'css/leader_view.css' %}" rel="stylesheet">
+
+<div class="containter">
+  <div class="row">
+    <div class="col-lg-12">
+      
+    <ul class="filters">
+      <span> Colors: &nbsp &nbsp &nbsp</span>
+      <li class="active" data-filter="*"><a href="#!"> All </a></li>
+      <li data-filter=".Red"><a href="#!"> Red </a></li>
+      <li data-filter=".Green"><a href="#!"> Green </a></li>
+      <li data-filter=".Blue"><a href="#!"> Blue </a></li>
+      <li data-filter=".Purple"><a href="#!"> Purple </a></li>
+      <li data-filter=".Black"><a href="#!"> Black </a></li>
+      <li data-filter=".Yellow"><a href="#!"> Yellow </a></li>
+      <li data-filter=".Pure"><a href="#!"> Only pure </a></li>
+    </ul>
+    <ul class="filters">
+      <span> Properties: &nbsp &nbsp &nbsp</span>
+      <li class="active" data-filter="*"><a href="#!"> All </a></li>
+      <li data-filter=".Red"><a href="#!"> Character </a></li>
+      <li data-filter=".Green"><a href="#!"> Event </a></li>
+      <li data-filter=".Blue"><a href="#!"> Stage </a></li>
+      <li data-filter=".Purple"><a href="#!"> Counter 1000 </a></li>
+      <li data-filter=".Black"><a href="#!"> Counter 2000 </a></li>
+      <li data-filter=".Yellow"><a href="#!"> Blocker </a></li>
+      <li data-filter=".Pure"><a href="#!"> Trigger  </a></li>
+    </ul>
+    <ul class="filters">
+      <span> Set: &nbsp &nbsp &nbsp</span>
+      <li class="active" data-filter="*"><a href="#!"> All </a></li>
+      <li data-filter=".Red"><a href="#!"> OP01 </a></li>
+      <li data-filter=".Green"><a href="#!"> OP02 </a></li>
+      <li data-filter=".Blue"><a href="#!"> OP03 </a></li>
+      <li data-filter=".Purple"><a href="#!"> OP04 </a></li>
+      <li data-filter=".Black"><a href="#!"> ST1-10 </a></li>
+    </ul>
+    
+<div class="projects" >
+  {% for leader in leaders %}
+    <div class="text-center mx-1 item {{leader.color1}} {{leader.color2}} ">
+      <a href="{% url leader.url %}">
+      <img src="static/img/{{ leader.id }}.png" height="192" width="137.4"   />
+      <h6 class="text">{{leader.name}}</h6>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="static/js/isotope.min.js"></script>
+<script src="static/js/script.js"></script>  
 {% endblock content %}

@@ -13,3 +13,40 @@
   text-align: center; /* Centruje zawartość wewnątrz elementu */
 }
 
+
+ul.filters{
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+}
+
+ul.filters > li{
+  list-style: none;
+  display: inline-block;
+}
+
+ul.filters > li > a{
+  display: block;
+  color: #434e5e;
+  text-decoration: none;
+  padding: 5px 20px;
+}
+
+ul.filters > li > a:hover{
+  background-color: #e6e9ed;
+}
+
+ul.filters > li.active > a{
+  color: #fff;
+  background-color: #383838;
+}
+
+
+.text {
+  display: block;
+  width: 130px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

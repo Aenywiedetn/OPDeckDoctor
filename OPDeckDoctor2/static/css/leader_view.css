@@ -10,9 +10,21 @@
   gap: 10px; /* Dodaje odstęp między elementami */
 }
 .grid-item {
-  text-align: center; /* Centruje zawartość wewnątrz elementu */
+  text-align: center; 
 }
 
+a img
+{
+  opacity: 0.8;
+}
+a img:hover
+{
+  opacity: 1;
+}
+.for_zoom:hover
+{
+  transform: scale(3);
+}
 
 ul.filters{
   display: block;

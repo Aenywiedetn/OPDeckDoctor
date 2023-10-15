@@ -10,7 +10,7 @@
   </div>
   <div class="col-md-6 text-center">
     <h1> {{ deck_info.leader }} </h1>
-    <h1> <strong> {{deck_info.name}} </strong> </h1>
+    <h1> <strong> {{ deck_info.name }} </strong> </h1>
     <h2><strong>{{ deck_info.color1 }} {{ deck_info.color2 }}</strong></h2>
     <br><br>
     <hr></hr>
@@ -18,11 +18,13 @@
     <hr></hr>
     <br><br>
     <h3><strong> Decklist Format </strong></h3>
+    
     <ul class="filters">
       <li class="active" data-filter="*"><a href="#!"> Both </a></li>
       <li data-filter=".TCG"><a href="#!"> TCG </a></li>
       <li data-filter=".OCG"><a href="#!"> OCG </a></li>
     </ul>
+  
     <br><br>
     <h3><strong> Decklist Set </strong></h3>
     <ul class="filters">
@@ -38,19 +40,21 @@
 
 <div class="grid-container " >
   {% for zestaw in sorted_avg %}
-    <div class="grid-item ">
-      <img src="static/img/{{ zestaw.1 }}.png" height="128" width="91.6" title="{{ zestaw.1 }}" />
+    <div class="grid-item">
+      <img src="static/img/{{ zestaw.1 }}.png" height="128" width="91.6" class="for_zoom" />
       <h6>{{ zestaw.0 }}</h6>
     </div>
   {% endfor %}
 </div>
+<a name="decklists"></a>
 <div class="projects">
+  
 {% for data in decklist_data %}
   <div class="item {{data.format}} ">
   <hr></hr>
   <h1>Decklist {{ data.index }}</h1>
   {% for deck_id in data.decklist %}
-    <img src="static/img/{{deck_id}}.png" height="128" width="91.6" title="{{deck_id}}"/>
+    <img src="static/img/{{deck_id}}.png" height="128" width="91.6" class="for_zoom"/>
   {% endfor %}
   <h6> Credits: OPTopdecks.com Format: {{data.format}} </h6>
   </div>

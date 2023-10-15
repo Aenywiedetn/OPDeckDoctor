@@ -1,8 +1,8 @@
 /* Basic styling */
-body {
-  margin: 0;
+.main {
+  margin: auto;
+  margin-left: 450px;
   padding: 0;
-  font-family: Arial, sans-serif;
 }
 
 .sidebar {
@@ -13,6 +13,7 @@ body {
 
 .content {
   max-width: 500px;
+  
   margin: auto;
 }
 /* Toggle button for opening/closing the sidebar */

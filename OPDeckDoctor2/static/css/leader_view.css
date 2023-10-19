@@ -15,15 +15,44 @@
 
 a img
 {
-  opacity: 0.8;
+ opacity: 1;
 }
 a img:hover
 {
-  opacity: 1;
+  transform: scale(1.1);
 }
 .for_zoom:hover
 {
   transform: scale(3);
+}
+
+
+ul.switches{
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+}
+
+ul.switches > li{
+  list-style: none;
+  display: inline-block;
+}
+
+ul.switches > li > a{
+  display: block;
+  color: #434e5e;
+  text-decoration: none;
+  padding: 5px 20px;
+}
+
+ul.switches > li > a:hover{
+  background-color: #e6e9ed;
+}
+
+ul.switches > li.active > a{
+  color: #fff;
+  background-color: #383838;
 }
 
 ul.filters{

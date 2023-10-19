@@ -21,7 +21,7 @@
 <div class="projects" >
   {% for leader in leaders %}
     <div class="text-center mx-1 item {{leader.color1}} {{leader.color2}} ">
-      <a href="{% url leader.url %}">
+      <a href="{% url 'decklistOP04' leader=leader.id %}">
       <img src="static/img/{{ leader.id }}.png" height="192" width="137.4"   />
       <h6 class="text">{{leader.name}}</h6>
       </a>

@@ -6,7 +6,7 @@
 
 <div class="row">
   <div class="col-md-6 mb-5">
-    <img src="static/img/{{ deck_info.leader }}.png" class="border" />
+    <img src="../static/img/{{ deck_info.leader }}.png" class="border" />
   </div>
   <div class="col-md-6 text-center">
     <h1> {{ deck_info.leader }} </h1>
@@ -27,9 +27,9 @@
   
     <br><br>
     <h3><strong> Decklist Set </strong></h3>
-    <ul class="filters">
-      <li><a href="#!"> All </a></li>
-      <li><a href="#!"> OP04 </a></li>
+    <ul class="switches">
+      <li><a href="#!"> Archived </a></li>
+      <li class="active"><a href="#!"> OP04 </a></li>
       <li><a href="#!"> OP05 </a></li>
     </ul>
   </div>
@@ -41,7 +41,7 @@
 <div class="grid-container " >
   {% for zestaw in sorted_avg %}
     <div class="grid-item">
-      <img src="static/img/{{ zestaw.1 }}.png" height="128" width="91.6" class="for_zoom" />
+      <img src="../static/img/{{ zestaw.1 }}.png" height="128" width="91.6" class="for_zoom" />
       <h6>{{ zestaw.0 }}</h6>
     </div>
   {% endfor %}
@@ -54,7 +54,7 @@
   <hr></hr>
   <h1>Decklist {{ data.index }}</h1>
   {% for deck_id in data.decklist %}
-    <img src="static/img/{{deck_id}}.png" height="128" width="91.6" class="for_zoom"/>
+    <img src="../static/img/{{deck_id}}.png" height="128" width="91.6" class="for_zoom"/>
   {% endfor %}
   <h6> Credits: OPTopdecks.com Format: {{data.format}} </h6>
   </div>
@@ -63,6 +63,6 @@
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="static/js/isotope.min.js"></script>
-<script src="static/js/script.js"></script>  
+<script src="../static/js/isotope.min.js"></script>
+<script src="../static/js/script.js"></script>  
 {% endblock content %}

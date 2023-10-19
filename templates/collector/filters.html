@@ -4,11 +4,40 @@
 {% load static %}
 {% block content %}
 <script type="text/javascript" src="{% static 'card_filters.js' %}"></script>
+<div id="menu">
+  
+
+  <ul>
+    <li>
+      <a href="#"> Color </a>
+      <ul class="dropdown">
+        <a href="">
+          <li>Red</li>
+        </a>
+        <a href="">
+          <li>Green</li>
+        </a>
+        <a href="">
+          <li>Blue</li>
+        </a>
+      </ul>
+    </li>
+    <li>
+      <a href="#"> Set </a>
+      <ul class="dropdown">
+        <li>OP01</li>
+        <li>OP02</li>
+        <li>OP03</li>
+      </ul>
+    </li>
+  </ul>
+  <br><br>
 			<h3 class="mb-4 border-bottom pb-1">Filters</h3>
       <div class="row">
         <div class="col-lg-3">
           <div class="card mb-4">
           <h6 class="card-header">Color</h6>
+          
           <div class="list-group list-group-flush">
             
               <label class="list-group-item">
@@ -38,6 +67,7 @@
             
             
           </div>
+        </ul>
         </div></div>
         <div class="col-lg-3">
           <div class="card mb-4">

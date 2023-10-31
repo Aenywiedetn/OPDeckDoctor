@@ -1,16 +1,17 @@
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Tworzy dynamiczną siatkę z kolumnami o szerokości co najmniej 200px */
-  gap: 10px; /* Dodaje odstęp między elementami */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0px; 
 }
 
 .grid-container-leader {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Tworzy dynamiczną siatkę z kolumnami o szerokości co najmniej 200px */
-  gap: 10px; /* Dodaje odstęp między elementami */
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
 }
 .grid-item {
   text-align: center; 
+  
 }
 
 a img
@@ -90,4 +91,12 @@ ul.filters > li.active > a{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.cardName {
+  display: block;
+  width: 96.18px;
+  overflow: hidden;
+  white-space: nowrap;
+
 }

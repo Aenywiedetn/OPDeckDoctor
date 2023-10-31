@@ -41,8 +41,13 @@
   position: absolute;
   width: 230px;
   top: 37px;
+  z-index: 100;
 }
 
 .card:hover .list-group {
   display: block;
+}
+
+.list-group label:hover {
+  background-color: rgb(155, 155, 155);
 }

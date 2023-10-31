@@ -3,54 +3,36 @@
 
 {% load static %}
 {% block content %}
-<script type="text/javascript" src="{% static 'card_filters.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script type="text/javascript" src="{% static 'js/card_filters.js' %}"></script>
+<link href="{% static 'css/leader_view.css' %}" rel="stylesheet">
 
-<h3 class="mb-4 border-bottom pb-1">Filters</h3>
-      
+<h3 class="mb-4 border-bottom pb-1">Card List</h3>
 <div class="row menu">
+  <div class="col-lg-3">
+  <input class="form-control mb-4 text-center" id="cardSearch" type="text" placeholder="Search by name" >
+  </div>
   <div class="col-lg-3 filter-block" id="colors">
     <div class="card mb-4">
       <h6 class="card-header">Color</h6>
       <div class="list-group">
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="category" value="{{cat.category__id}}" type="checkbox" style="float: left"/> &nbsp; Red
+          <input class="filter-checkbox mt-1" data-filter="color" value="red" type="checkbox" style="float: left"/> &nbsp; Red
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="category" value="{{cat.category__id}}" type="checkbox" style="float: left"/> &nbsp; Green
+          <input class="filter-checkbox mt-1" data-filter="color" value="green" type="checkbox" style="float: left"/> &nbsp; Green
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="category" value="{{cat.category__id}}" type="checkbox" style="float: left"/>&nbsp; Blue
+          <input class="filter-checkbox mt-1" data-filter="color" value="blue" type="checkbox" style="float: left"/>&nbsp; Blue
         </label>      
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="category" value="{{cat.category__id}}" type="checkbox" style="float: left"/>&nbsp; Purple
+          <input class="filter-checkbox mt-1" data-filter="color" value="purple" type="checkbox" style="float: left"/>&nbsp; Purple
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="category" value="{{cat.category__id}}" type="checkbox" style="float: left"/>&nbsp; Black
+          <input class="filter-checkbox mt-1" data-filter="color" value="black" type="checkbox" style="float: left"/>&nbsp; Black
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="category" value="{{cat.category__id}}" type="checkbox" style="float: left"/>&nbsp; Yellow
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 filter-block" id="sets">
-    <div class="card mb-4">
-      <h6 class="card-header">Set</h6>
-      <div class="list-group list-group-flush">
-        <label class="list-group-item">
-        <input class="filter-checkbox mt-1" data-filter="category" value="{{cat.category__id}}" type="checkbox" style="float: left" /> &nbsp; OP01
-        </label> 
-        <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="category" value="{{cat.category__id}}" type="checkbox" style="float: left" />&nbsp; OP02
-        </label>     
-        <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="category" value="{{cat.category__id}}" type="checkbox" style="float: left"/>&nbsp; OP03
-        </label>
-        <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="category" value="{{cat.category__id}}" type="checkbox" style="float: left"/>&nbsp; OP04
-        </label>
-        <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="category" value="{{cat.category__id}}" type="checkbox" style="float: left"/>&nbsp; ST01-09
+          <input class="filter-checkbox mt-1" data-filter="color" value="yellow" type="checkbox" style="float: left"/>&nbsp; Yellow
         </label>
       </div>
     </div>
@@ -60,13 +42,122 @@
       <h6 class="card-header">Type</h6>
       <div class="list-group list-group-flush">
         <label class="list-group-item">
-      <input class="filter-checkbox mt-1" data-filter="brand" value="{{brand.brand__id}}" type="checkbox" style="float: left"/>&nbsp; Character
+      <input class="filter-checkbox mt-1" data-filter="type" value="CHARACTER" type="checkbox" style="float: left"/>&nbsp; Character
         </label>
         <label class="list-group-item">
-        <input class="filter-checkbox mt-1" data-filter="brand" value="{{brand.brand__id}}" type="checkbox" style="float: left"/>&nbsp; Event
+        <input class="filter-checkbox mt-1" data-filter="type" value="EVENT" type="checkbox" style="float: left"/>&nbsp; Event
         </label>
         <label class="list-group-item">
-        <input class="filter-checkbox mt-1" data-filter="brand" value="{{brand.brand__id}}" type="checkbox" style="float: left"/>&nbsp; Stage
+        <input class="filter-checkbox mt-1" data-filter="type" value="STAGE" type="checkbox" style="float: left"/>&nbsp; Stage
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 filter-block" id="cost">
+    <div class="card mb-4">
+      <h6 class="card-header">Cost</h6>
+      <div class="list-group list-group-flush">
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="cost" value="0" type="checkbox" style="float: left"/>&nbsp; 0
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="cost" value="1" type="checkbox" style="float: left"/>&nbsp; 1
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="cost" value="2" type="checkbox" style="float: left"/>&nbsp; 2
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="cost" value="3" type="checkbox" style="float: left"/>&nbsp; 3
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="cost" value="4" type="checkbox" style="float: left"/>&nbsp; 4
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="cost" value="5" type="checkbox" style="float: left"/>&nbsp; 5
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="cost" value="6" type="checkbox" style="float: left"/>&nbsp; 6
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="cost" value="7" type="checkbox" style="float: left"/>&nbsp; 7
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="cost" value="8" type="checkbox" style="float: left"/>&nbsp; 8
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="cost" value="9" type="checkbox" style="float: left"/>&nbsp; 9
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="cost" value="10" type="checkbox" style="float: left"/>&nbsp; 10
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row menu">
+  
+  <div class="col-lg-3 filter-block" id="sets">
+    <div class="card mb-4">
+      <h6 class="card-header">Set</h6>
+      <div class="list-group list-group-flush">
+        <label class="list-group-item">
+        <input class="filter-checkbox mt-1" data-filter="set" value="OP01" type="checkbox" style="float: left" /> &nbsp; OP01
+        </label> 
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="set" value="OP02" type="checkbox" style="float: left" />&nbsp; OP02
+        </label>     
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="set" value="OP03" type="checkbox" style="float: left"/>&nbsp; OP03
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="set" value="OP04" type="checkbox" style="float: left"/>&nbsp; OP04
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="set" value="OP04" type="checkbox" style="float: left"/>&nbsp; OP05
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="set" value="ST" type="checkbox" style="float: left"/>&nbsp; Starters
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="set" value="ST" type="checkbox" style="float: left"/>&nbsp; Promos
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 filter-block" id="rarities">
+    <div class="card mb-4">
+      <h6 class="card-header">Rarity</h6>
+      <div class="list-group list-group-flush">
+        <label class="list-group-item">
+      <input class="filter-checkbox mt-1" data-filter="rarity" value="C" type="checkbox" style="float: left"/>&nbsp; Common
+        </label>
+        <label class="list-group-item">
+        <input class="filter-checkbox mt-1" data-filter="rarity" value="UC " type="checkbox" style="float: left"/>&nbsp; Uncommon
+        </label>
+        <label class="list-group-item">
+        <input class="filter-checkbox mt-1" data-filter="rarity" value="SR" type="checkbox" style="float: left"/>&nbsp; Super Rare
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="rarity" value="SEC" type="checkbox" style="float: left"/>&nbsp; Secret Rare
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="rarity" value="P" type="checkbox" style="float: left"/>&nbsp; Promo 
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 filter-block" id="collection">
+    <div class="card mb-4">
+      <h6 class="card-header">Collection</h6>
+      <div class="list-group list-group-flush">
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="#" value="#" type="checkbox" style="float: left"/>&nbsp; Owned
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="#" value="#" type="checkbox" style="float: left"/>&nbsp; Missing copies
+        </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="#" value="#" type="checkbox" style="float: left"/>&nbsp; Not owned
         </label>
       </div>
     </div>
@@ -76,22 +167,36 @@
       <h6 class="card-header">Utility</h6>
       <div class="list-group list-group-flush">
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="blocker" value="{{size.size__id}}" type="checkbox" style="float: left"/>&nbsp; Blocker
+          <input class="filter-checkbox mt-1" data-filter="blocker" value="True" type="checkbox" style="float: left"/>&nbsp; Blocker
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="trigger" value="{{size.size__id}}" type="checkbox" style="float: left"/>&nbsp; Trigger
+          <input class="filter-checkbox mt-1" data-filter="trigger" value="True" type="checkbox" style="float: left"/>&nbsp; Trigger
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="trigger" value="{{size.size__id}}" type="checkbox" style="float: left"/>&nbsp; Counter 1k
+          <input class="filter-checkbox mt-1" data-filter="counter" value="1000" type="checkbox" style="float: left"/>&nbsp; Counter
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="trigger" value="{{size.size__id}}" type="checkbox" style="float: left"/>&nbsp; Counter 2k
+          <input class="filter-checkbox mt-1" data-filter="counter" value="2000" type="checkbox" style="float: left"/>&nbsp; Counter 2000
         </label>
       </div>
     </div>
   </div>
 </div>
 
-<h6> KARTY KARTY </h6>
+<hr></hr>
+<div class="grid-container" id="filterArea" >
+      {% for card in cards %}
+        <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-blocker="{{ card.blocker }}" data-set="{{card.set}}" >
+          <a>
+            <img src="../static/img/{{ card.id }}.png" height="134.4" width="96.18" class="for_zoom"/>
+            <h6 class="cardName">{{card.name}}</h6>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
 
 {% endblock content %}

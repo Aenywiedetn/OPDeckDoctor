@@ -113,13 +113,13 @@
           <input class="filter-checkbox mt-1" data-filter="set" value="OP04" type="checkbox" style="float: left"/>&nbsp; OP04
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="set" value="OP04" type="checkbox" style="float: left"/>&nbsp; OP05
+          <input class="filter-checkbox mt-1" data-filter="set" value="OP05" type="checkbox" style="float: left"/>&nbsp; OP05
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="set" value="ST" type="checkbox" style="float: left"/>&nbsp; Starters
+          <input class="filter-checkbox mt-1" data-filter="set" value="Starters" type="checkbox" style="float: left"/>&nbsp; Starters
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="set" value="ST" type="checkbox" style="float: left"/>&nbsp; Promos
+          <input class="filter-checkbox mt-1" data-filter="set" value="Promos" type="checkbox" style="float: left"/>&nbsp; Promos
         </label>
       </div>
     </div>
@@ -132,8 +132,11 @@
       <input class="filter-checkbox mt-1" data-filter="rarity" value="C" type="checkbox" style="float: left"/>&nbsp; Common
         </label>
         <label class="list-group-item">
-        <input class="filter-checkbox mt-1" data-filter="rarity" value="UC " type="checkbox" style="float: left"/>&nbsp; Uncommon
+        <input class="filter-checkbox mt-1" data-filter="rarity" value="UC" type="checkbox" style="float: left"/>&nbsp; Uncommon
         </label>
+        <label class="list-group-item">
+          <input class="filter-checkbox mt-1" data-filter="rarity" value="R" type="checkbox" style="float: left"/>&nbsp; Rare
+          </label>
         <label class="list-group-item">
         <input class="filter-checkbox mt-1" data-filter="rarity" value="SR" type="checkbox" style="float: left"/>&nbsp; Super Rare
         </label>
@@ -173,10 +176,10 @@
           <input class="filter-checkbox mt-1" data-filter="trigger" value="True" type="checkbox" style="float: left"/>&nbsp; Trigger
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="counter" value="1000" type="checkbox" style="float: left"/>&nbsp; Counter
+          <input class="filter-checkbox mt-1" data-filter="counter" value="True" type="checkbox" style="float: left"/>&nbsp; Counter
         </label>
         <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="counter" value="2000" type="checkbox" style="float: left"/>&nbsp; Counter 2000
+          <input class="filter-checkbox mt-1" data-filter="counter2k" value="True" type="checkbox" style="float: left"/>&nbsp; Counter 2000
         </label>
       </div>
     </div>
@@ -186,7 +189,7 @@
 <hr></hr>
 <div class="grid-container" id="filterArea" >
       {% for card in cards %}
-        <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-blocker="{{ card.blocker }}" data-set="{{card.set}}" >
+        <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-cost="{{ card.cost }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-counter2k="{{ card.counter2k }}" data-blocker="{{ card.blocker }}" data-set="{{ card.set }}" data-rarity="{{card.rarity}}"  >
           <a>
             <img src="../static/img/{{ card.id }}.png" height="134.4" width="96.18" class="for_zoom"/>
             <h6 class="cardName">{{card.name}}</h6>

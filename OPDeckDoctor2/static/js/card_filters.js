@@ -13,11 +13,27 @@ $(document).ready(function () {
       return $(this).val();
     }).get();
 
+		const counter2kFilters = $("input[data-filter='counter2k']:checked").map(function () {
+      return $(this).val();
+    }).get();
+
     const triggerFilters = $("input[data-filter='trigger']:checked").map(function () {
       return $(this).val();
     }).get();
 
     const blockerFilters = $("input[data-filter='blocker']:checked").map(function () {
+      return $(this).val();
+    }).get();
+
+		const costFilters = $("input[data-filter='cost']:checked").map(function () {
+      return $(this).val();
+    }).get();
+
+		const rarityFilters = $("input[data-filter='rarity']:checked").map(function () {
+      return $(this).val();
+    }).get();
+
+		const setFilters = $("input[data-filter='set']:checked").map(function () {
       return $(this).val();
     }).get();
 
@@ -28,18 +44,26 @@ $(document).ready(function () {
       const cardColor = $card.data("color");
       const cardType = $card.data("type");
       const cardCounter = $card.data("counter");
+			const cardCounter2k = $card.data("counter2k");
       const cardTrigger = $card.data("trigger");
       const cardBlocker = $card.data("blocker");
+			const cardCost = $card.data("cost");
+			const cardRarity = $card.data("rarity");
+			const cardSet = $card.data("set");
       const cardName = $card.find(".cardName").text().toLowerCase();
 
       const colorMatch = colorFilters.length === 0 || colorFilters.includes(cardColor);
       const typeMatch = typeFilters.length === 0 || typeFilters.includes(cardType);
       const counterMatch = counterFilters.length === 0 || counterFilters.includes(cardCounter);
+			const counter2kMatch = counter2kFilters.length === 0 || counter2kFilters.includes(cardCounter2k);
       const triggerMatch = triggerFilters.length === 0 || triggerFilters.includes(cardTrigger);
       const blockerMatch = blockerFilters.length === 0 || blockerFilters.includes(cardBlocker);
+			const costMatch = costFilters.length === 0 || costFilters.includes(cardCost.toString());
+			const rarityMatch = rarityFilters.length === 0 || rarityFilters.includes(cardRarity);
+			const setMatch = setFilters.length === 0 || setFilters.includes(cardSet);
       const nameMatch = cardName.includes(cardNameFilter);
 
-      const shouldShow = colorMatch && typeMatch && counterMatch && triggerMatch && blockerMatch && nameMatch;
+      const shouldShow = colorMatch && typeMatch && counterMatch && triggerMatch && blockerMatch && nameMatch && counter2kMatch && costMatch && rarityMatch && setMatch;
       $card.toggle(shouldShow);
     });
   }

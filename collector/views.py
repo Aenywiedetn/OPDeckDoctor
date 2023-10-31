@@ -8,5 +8,3 @@ def index(request):
   context = { 'cards' : cards}
   return render(request, 'collector/filters.html', context)
 
-def filter_data(request):
-  return JsonResponse({'data':'hello'})

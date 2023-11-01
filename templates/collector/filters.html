@@ -185,20 +185,40 @@
     </div>
   </div>
 </div>
+<div class="row menu">
+  <div class="col-lg-2">
+    <label><input class="collection-hiding-checkbox mt-1" type="checkbox" style="float: left"/> &nbsp;&nbsp;&nbsp;  Hide numbers </label>
+  </div>
+  <div class="col-lg-2">
+    <label><input class="names-hiding-checkbox mt-1" type="checkbox" style="float: left"/>&nbsp;&nbsp;&nbsp; Hide card names </label>
+  </div>
+  <div class="col-lg-2">
+  </div>
+  <div class="col-lg-2">
+
+  </div>
+
 
 <hr></hr>
 <div class="grid-container" id="filterArea" >
       {% for card in cards %}
         <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-cost="{{ card.cost }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-counter2k="{{ card.counter2k }}" data-blocker="{{ card.blocker }}" data-set="{{ card.set }}" data-rarity="{{card.rarity}}"  >
           <a>
+            <input class="number-owned text-center" type="text" placeholder="Number owned" >
             <img src="../static/img/{{ card.id }}.png" height="134.4" width="96.18" class="for_zoom"/>
-            <h6 class="cardName">{{card.name}}</h6>
+            <h6 class="cardName"><b>{{card.name}}</b></h6>
           </a>
         </div>
       {% endfor %}
     </div>
   </div>
 </div>
+
+
+
+
+
+
 
 
 

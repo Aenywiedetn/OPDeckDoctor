@@ -68,6 +68,24 @@ $(document).ready(function () {
     });
   }
 
+  var numberbox = document.querySelector('.collection-hiding-checkbox');
+  var numberOwnedInputs = document.querySelectorAll('.number-owned');
+  numberbox.addEventListener('change', function() {
+    var displayValue = numberbox.checked ? 'none' : 'block';
+    numberOwnedInputs.forEach(function(input) {
+      input.style.display = displayValue;
+    });
+  });
+  
+  var namebox = document.querySelector('.names-hiding-checkbox');
+  var cardNameElements = document.querySelectorAll('.cardName');
+  namebox.addEventListener('change', function() {
+    var displayValue = namebox.checked ? 'none' : 'block';
+    cardNameElements.forEach(function(cardName) {
+      cardName.style.display = displayValue;
+    });
+  });
+
   // Initial filter
   applyFilters();
 

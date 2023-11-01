@@ -5,39 +5,5 @@
 
 
 <h1 class="text-center">Preffered Colors</h1>
-<div class="container">
-<hr class="mx-auto" style="width: 8rem;" />
-<form action="{% url 'preferences' %}" method="post">
-  {% csrf_token %}
-<div class="list-group mx-auto" style="width: 14rem;">
-  <label class="list-group-item">
-    <input class="form-check-input mt-1" type="checkbox" value="" style="float: left">
-    <div class="text-center"> Red </div>
-  </label>
-  <label class="list-group-item">
-    <input class="form-check-input me-4" type="checkbox" value="" style="float: left">
-    <div class="text-center"> Green </div>
-  </label>
-  <label class="list-group-item">
-    <input class="form-check-input me-4" type="checkbox" value="" style="float: left">
-    <div class="text-center"> Blue </div>
-  </label>
-  <label class="list-group-item">
-    <input class="form-check-input me-4" type="checkbox" value="" style="float: left">
-    <div class="text-center"> Purple </div>
-  </label>
-  <label class="list-group-item">
-    <input class="form-check-input me-4" type="checkbox" value="" style="float: left">
-    <div class="text-center"> Black </div>
-  </label>
-  <label class="list-group-item">
-    <input class="form-check-input me-4" type="checkbox" value="" style="float: left">
-    <div class="text-center"> Yellow </div>
-  </label>
-  <input class="btn btn-outline-secondary my-auto text-light" type="submit" value="Save Changes"/>
 
-</div>
-</form>
-
-</div>
 {% endblock %}

@@ -100,3 +100,9 @@ ul.filters > li.active > a{
   white-space: nowrap;
 
 }
+
+.number-owned {
+  display: block;
+  width: 96.18px;
+  height: 22.23px;
+}

@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1z-jojf9xqwzu8#z%6ig@di(jm#hoqq1gnbpy_x02#b7-ygc(r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -145,13 +145,8 @@ DEFAULT_FROM_EMAIL = 'opdeckdoctorvalidator@gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_PASSWORD = 'chxq rtsx aaow jvvs'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ALLOWED_HOSTS = ['opdeckdoctor.com', 'opdeckdoctor-production.up.railway.app']

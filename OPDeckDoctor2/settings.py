@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1z-jojf9xqwzu8#z%6ig@di(jm#hoqq1gnbpy_x02#b7-ygc(r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['opdeckdoctor.com', 'opdeckdoctor-production.up.railway.app']
+ALLOWED_HOSTS = ['opdeckdoctor.com', 'opdeckdoctor-production.up.railway.app', 'localhost']
 
 
 # Application definition

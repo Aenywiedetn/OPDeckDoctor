@@ -4,7 +4,6 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from OPDeckDoctor2.rounding import round_up
 from .defs import deckView
-from django.core.exceptions import ObjectDoesNotExist
 
 
 def index(request):

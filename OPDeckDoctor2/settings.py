@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1z-jojf9xqwzu8#z%6ig@di(jm#hoqq1gnbpy_x02#b7-ygc(r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['opdeckdoctor.com', 'opdeckdoctor-production.up.railway.app']
 
 
 # Application definition
@@ -85,10 +85,11 @@ WSGI_APPLICATION = 'OPDeckDoctor2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'OnePiece DeckDoctor',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'bazadanych',
-        'HOST': 'localhost'
+        'PASSWORD': '56D4ABC-f5-1CDG-fb35F*A4BcA1*F5d',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '43465'
     }
 }
 
@@ -149,4 +150,3 @@ EMAIL_HOST_PASSWORD = 'chxq rtsx aaow jvvs'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ALLOWED_HOSTS = ['opdeckdoctor.com', 'opdeckdoctor-production.up.railway.app']

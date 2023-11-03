@@ -1,6 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 
-# Create your models here.
 class Card(models.Model):
   id = models.CharField(default='', primary_key=True)
   name = models.CharField(default='')
@@ -13,3 +14,9 @@ class Card(models.Model):
   blocker = models.BooleanField(default=False)
   trigger = models.BooleanField(default=False)
   rarity = models.CharField(default='')
+
+class UserInput(models.Model):
+    card = models.ForeignKey(Card, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  
+    number_owned = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(4)])
+  

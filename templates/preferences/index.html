@@ -2,8 +2,72 @@
 
 {% block content %}
 
+{% include 'partials/_messages.html' %}
 
 
-<h1 class="text-center">Preffered Colors</h1>
+<h3 class="mb-4 border-bottom pb-1 text-center"> Quick-acces selection </h3>
+<form action="{% url 'preferences' %}" method="post">
+  {% csrf_token %}
+<div class="row menu text-center">
+  <div class="col-lg-3">
+    <div class="input-group">
+      <select name="leader1" class="custom-select mx-4">
+        {% if user_preferences.leader1 %} 
+        <option selected value="{{ user_preferences.leader1 }}"> &nbsp;&nbsp; {{ user_preferences.leader1 }} </option>
+        {% endif %}
+        {% for leader in leaders %}
+        <option name="leader1" value="{{leader.id}} - {{leader.name}}">&nbsp;&nbsp; {{leader.id}} - {{leader.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="input-group">
+      <select name="leader2" class="custom-select mx-4">
+        {% if user_preferences.leader2 %} 
+        <option selected value="{{ user_preferences.leader2 }}">&nbsp;&nbsp; {{ user_preferences.leader2 }} </option>
+        {% endif %}
+        {% for leader in leaders %}
+        <option name="leader2" value="{{leader.id}} - {{leader.name}}"> &nbsp;&nbsp;{{leader.id}} - {{leader.name}} </option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="input-group">
+      <select name="leader3" class="custom-select mx-4">
+        {% if user_preferences.leader3 %} 
+        <option selected value="{{ user_preferences.leader3 }}">&nbsp;&nbsp; {{ user_preferences.leader3 }} </option>
+        {% endif %}
+        {% for leader in leaders %}
+        <option name="leader3" value="{{leader.id}} - {{leader.name}}">&nbsp;&nbsp;{{leader.id}} - {{leader.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="input-group">
+      <input class="btn quarter-screener btn-outline-secondary mx-3" type="submit" value="Save changes"/>
+    </div>
+  </div>
+</div>
+</form>
 
+
+
+
+<h3 class="text-center mt-5">Your leader line-up:</h3>
+<div class="row menu text-center">
+  <div class="przesuwka"> </div>
+  <div class="col-lg-3 mt-3 mx-3">
+    <img class="portrait" src='../static/img/{{ user_preferences.leader1|slice:":8" }}.png' height="336" width="240,45"/>
+  </div>
+  <div class="col-lg-3 mt-3 mx-3">
+    <img class="portrait" src='../static/img/{{ user_preferences.leader2|slice:":8" }}.png' height="336" width="240,45"/>
+  </div>
+  <div class="col-lg-3 mt-3 mx-3">
+    <img class="portrait" src='../static/img/{{ user_preferences.leader3|slice:":8" }}.png' height="336" width="240,45"/>
+  </div>
+
+  
 {% endblock %}

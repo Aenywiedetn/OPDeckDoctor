@@ -8,16 +8,18 @@
 
     <!-- Bootstrap core CSS -->
 <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-<link href="{% static 'css/main.css' %}" rel="stylesheet" >
+<link href="{% static 'css/style.css' %}" rel="stylesheet" >
    
-    <!-- Custom styles for this template -->
-    <link href=" {% static 'css/dashboard.css' %}" rel="stylesheet">
   </head>
   <body>
 
 
     <main role="main">
-      
+      <div class="logo mt-4 mx-3">
+        <a href="{% url 'decks' %}">
+        <img src="../static/img/DeckDoctorLogo.jpg" width="275" height="70.81"/>
+        </a>
+      </div>
 
 
   {% block content %}

@@ -29,6 +29,8 @@ class UsernameValidationView(View):
     username=data['username']
     if not str(username).isalnum():
       return JsonResponse({'username_error':'( Username should only contain alphanumeric characters! '}, status=400)
+    if len(username)>16:
+      return JsonResponse({'username_error':'( Username cannot exceed 16 characters! '}, status=400)
     if User.objects.filter(username=username).exists():
       return JsonResponse({'username_error':'Sorry, this username is taken'}, status=409)
     return JsonResponse({'username_valid':True})
@@ -40,7 +42,7 @@ class PasswordValidationView(View):
     password=data['password']
     if len(password)<6:
       return JsonResponse({'password_error':'( Password should contain at least 6 characters! '}, status=400)
-    return JsonResponse({'username_valid':True})
+    return JsonResponse({'password_valid':True})
   
   
 

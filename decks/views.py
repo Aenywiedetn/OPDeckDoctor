@@ -4,10 +4,9 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from OPDeckDoctor2.rounding import round_up
 from .defs import deckView
-#from .models import Card
-# Create your views here.
+from django.core.exceptions import ObjectDoesNotExist
 
-#@login_required(login_url='/authentication/login')
+
 def index(request):
   return render(request, 'decks/index.html')
 

@@ -1,77 +1,113 @@
 {% load static %}
-  <div class="container-fluid text-center mt-4 "  >
-    <div class="row">
-      
+<div class=" container-fluid text-center mt-4 "  >
+  <div class="row">   
     <nav class="col-md-2 bg-light sidebar text-center">
       <div class="sidebar-sticky">
         <div class="logo">
           <a href="{% url 'decks' %}">
-          <img src="../static/img/DeckDoctorLogo.jpg" width="200" height="51.5"/>
-        </a>
+          <img src="../static/img/DeckDoctorLogo.jpg" width="275" height="70.81"/>
+          </a>
         </div>
-          <hr></hr>
+        <hr/>
+        {% if user_username %}
+          <h5>Logged as {{ user_username }}</h5>
+        {% else %}
+          <h5>No account</h5>
+        {% endif %}
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link" href="{% url 'all_leaders'%}">
-             All Leaders
+            Decklist browser
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'cards' %}">
+            Card browser
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'collector' %}">
-              Card Collector
+            Card Collector
             </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'collector' %}">
-              Site Guide
-            </a>
-          </li>
-          
-    <hr></hr>
-          <h5> Watched Leaders: </h5>
-          
-              
-            </a>
-          </h6>
+          </li>  
+        </ul> 
+        <hr/>
+        {% if user_username %}
+          <h5> Quick-access </h5>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+              {% if user_preferences.leader1 %}
+                <a class="nav-link" href="{% url 'decklistOP04' leader=user_preferences.leader1|slice:":8" %}">
+                {{ user_preferences.leader1 }}
+                </a>
+              {% else %}
+                <a class="nav-link" href="{% url 'preferences'%}">
+                Leader 1 not selected
+                </a>
+              {% endif %}
+              </li>
+              <li class="nav-item">
+                {% if user_preferences.leader2 %}
+                  <a class="nav-link" href="{% url 'decklistOP04' leader=user_preferences.leader2|slice:":8" %}">
+                  {{ user_preferences.leader2 }}
+                  </a>
+                {% else %}
+                  <a class="nav-link" href="{% url 'preferences'%}">
+                  Leader 2 not selected
+                  </a>
+                {% endif %}
+              </li>
+              <li class="nav-item">
+                {% if user_preferences.leader3 %}
+                  <a class="nav-link" href="{% url 'decklistOP04' leader=user_preferences.leader3|slice:":8" %}">
+                  {{ user_preferences.leader3 }}
+                  </a>
+                {% else %}
+                  <a class="nav-link" href="{% url 'preferences'%}">
+                  Leader 3 not selected
+                  </a>
+                {% endif %}
+              </li>
+            </ul>
+        {% else %}
+          <a class="nav-link" href="{% url 'preferences'%}">
+            <h5> Log-in to setup</h5>
+          </a>
+          <h5> Quick-access </h5>
+        {% endif %} 
+        <hr/>
+        <h5>Profile:</h5>
         <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'decklistOP04' leader='OP04-019' %}">
-              Doflamingo OP04
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  href="{% url 'decklistOP04' leader='OP01-060' %}">
-              
-              Doflamingo OP01
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'decklistOP04' leader='OP01-002' %}">
-        
-              Law 0P01
-            </a>
-          </li>
-          
-          
-        </ul>
-    
-          <hr></hr>
-          <h5>Settings: </h5>
-        
-        <ul class="nav flex-column mb-2">
+          {% if user_username %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'preferences'%}">
-              <span data-feather="file-text"></span>
-              General
+              Quick-access settings
             </a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            {% if user_username %}
+            <a class="nav-link" href="#">
+              Change password (in development)
+            </a>
+            {% else %}
+            <a class="nav-link" href="{% url 'register'%}">
+              Register
+            </a>
+            {% endif %}
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Account
-            </a>
+              {% if user_username %}
+              <form action="{% url 'logout' %}" method="POST">
+              {% csrf_token %}
+                <input class="nav-link" type="submit" value="Log Out"/>
+              </form>
+              {% else %}
+                <a class="nav-link" href="{% url 'login' %}"> Login </a>
+              {% endif %}
           </li>
-          
         </ul>
       </div>
     </nav>
+  </div>
+</div>

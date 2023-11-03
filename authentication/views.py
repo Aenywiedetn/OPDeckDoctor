@@ -90,25 +90,23 @@ class RegistrationView(View):
     return render(request, 'authentication/register.html')
   
 class LoginView(View):
-  def get(self, request):
-    return render(request, 'authentication/login.html')
-    
   def post(self, request):
     username = request.POST['username']
     password = request.POST['password']
-
-    if username and password:
-      user=auth.authenticate(username=username, password=password)
-
-      if user:
-        if user.is_active:
+    user = auth.authenticate(username=username, password=password)
+    if user is not None:
+        if user.is_active == True:
           auth.login(request, user)
           messages.success(request,'Welcome aboard, '+user.username)
           return redirect('decks')
-
-        messages.error(request, 'Account is not active, please contact our support')
+        else:
+          messages.error(request, 'Account is not active, please check Your email')
+          return redirect('login')
+    else:
       messages.error(request, 'Credentials do not match the database, please register or try again')
-    messages.error(request, 'Please fill all fields')
+      return redirect('login')
+  
+  def get(self, request):
     return render(request, 'authentication/login.html')
   
 class LogoutView(View):

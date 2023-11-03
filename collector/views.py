@@ -46,6 +46,7 @@ def update_user_input(request, card_id):
 
     return render(request, 'collector/collector.html', {'form': form, 'card': card})
 
+@login_required(login_url='/authentication/login')
 def collector(request):
     cards = Card.objects.all()
     user_inputs = UserInput.objects.filter(user=request.user)

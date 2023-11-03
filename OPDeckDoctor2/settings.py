@@ -53,8 +53,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'userpreferences.middleware.UserPreferencesMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
-
 ROOT_URLCONF = 'OPDeckDoctor2.urls'
 
 TEMPLATES = [
@@ -143,3 +144,12 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'opdeckdoctorvalidator@gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_PASSWORD = 'chxq rtsx aaow jvvs'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

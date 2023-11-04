@@ -4,18 +4,18 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="{% static 'js/decklist_filters.js' %}"></script>
 
-{{ if deck_info.leader }}
+
   <div class="row">
     <div class="col-md-6 mb-5">
-      <img src="../static/img/{{ deck_info.leader }}.png" class="border" />
+      <img src="../static/img/{{ leader }}.png" class="border" />
     </div>
     <div class="col-md-6 text-center">
-      <h1> {{ deck_info.leader }} </h1>
-      <h1> <strong> {{ deck_info.name }} </strong> </h1>
-      <h2><strong>{{ deck_info.color1 }} {{ deck_info.color2 }}</strong></h2>
+      <h1> {{ deck.deck_info.leader }} </h1>
+      <h1> <strong> {{ deck.deck_info.name }} </strong> </h1>
+      <h2><strong>{{ deck.deck_info.color1 }} {{ deck.deck_info.color2 }}</strong></h2>
       <br><br>
       <hr></hr>
-      <h2> This Leader has {{ deck_counter }} decklists submitted! </h2>
+      <h2> This Leader has {{ deck.deck_counter }} decklists submitted! </h2>
       <hr></hr>
       <br><br>
       <h3><strong> Show decklists: </strong></h3>
@@ -47,10 +47,10 @@
   </div>
 
   <hr></hr>
-  <h1> Average number of cards included from {{ deck_counter }} decklists </h1>
+  <h1> Average number of cards included from {{ deck.deck_counter }} decklists </h1>
 
   <div class="grid-container " >
-    {% for zestaw in sorted_avg %}
+    {% for zestaw in deck.sorted_avg %}
       <div class="grid-item">
         <img src="../static/img/{{ zestaw.1 }}.png" height="128" width="91.6" class="for_zoom" />
         <h6>{{ zestaw.0 }}</h6>
@@ -59,7 +59,7 @@
   </div>
 
     
-  {% for data in decklist_data %}
+  {% for data in deck.decklist_data %}
     <div class = "decklist" data-format="{{data.format}}">
       <hr></hr>
       <h1>Decklist {{ data.index }}</h1>
@@ -69,10 +69,5 @@
       <h6> Credits: OPTopdecks.com Format: {{data.format}} </h6>
     </div>
   {% endfor %}
-{% else %}
-
-No trudno
-
-{% endif}
 
 {% endblock content %}

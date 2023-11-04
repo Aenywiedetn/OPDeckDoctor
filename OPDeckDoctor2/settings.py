@@ -24,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1z-jojf9xqwzu8#z%6ig@di(jm#hoqq1gnbpy_x02#b7-ygc(r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = ['*']
+DEBUG = False
+ALLOWED_HOSTS = ['opdeckdoctor.com', 'opdeckdoctor.up.railway.app', 'localhost', '127.0.0.1', '*' ]
 
 
 # Application definition
@@ -139,14 +139,14 @@ MESSAGE_TAGS = {
 }
 
 EMAIL_HOST = 'smtp.privateemail.com'
-EMAIL_HOST_USER = 'noreply@opdeckdoctor.com'
+EMAIL_HOST_USER = 'validator@opdeckdoctor.com'
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'noreply@opdeckdoctor.com'
+DEFAULT_FROM_EMAIL = 'validator@opdeckdoctor.com'
 EMAIL_PORT = 587
-EMAIL_HOST_PASSWORD = 'zzR4$E-EE_3$ss8'
+EMAIL_HOST_PASSWORD = 'itakjestnagithubieXD123'
 
 CSRF_TRUSTED_ORIGINS = [
-  'https://opdeckdoctor.com', 'https://opdeckdoctor-production.up.railway.app'
+  'https://opdeckdoctor.com', 'https://opdeckdoctor-production.up.railway.app', 'https://opdeckdoctor.up.railway.app'
 ]
 
 

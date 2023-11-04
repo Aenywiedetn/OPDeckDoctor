@@ -103,11 +103,13 @@ class LoginView(View):
           messages.error(request, 'Account is not active, please check Your email')
           return redirect('login')
     else:
-      messages.error(request, 'Credentials do not match the database, please register or try again')
+      messages.error(request, 'Credentials do not match the database, please register or activate account')
       return redirect('login')
   
   def get(self, request):
     return render(request, 'authentication/login.html')
+  
+
   
 class LogoutView(View):
   def post(self, request):

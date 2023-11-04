@@ -1,1 +1,1 @@
-web: gunicorn OPDeckDoctor2.wsgi
+web: gunicorn OPDeckDoctor2.wsgi --log-file - 

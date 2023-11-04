@@ -41,7 +41,6 @@ $(document).ready(function () {
       return $(this).val();
     }).get();
     $("input[data-filter='collection']").on("change", function () {
-      // Uncheck all checkboxes within the same group except the current one
       $("input[data-filter='collection']").not(this).prop("checked", false);
     });
     const cardNameFilter = $("#cardSearch").val().toLowerCase();
@@ -111,10 +110,8 @@ $(document).ready(function () {
   // Checkbox change event
   $("input[type='checkbox'], #cardSearch").on("change input", applyFilters);
 $('.resetBTN').on('click', function () {
-        // Uncheck all checkboxes
+        
         $('.filter-checkbox').prop('checked', false);
-
-        // Trigger a change event on the checkboxes to apply filters
         $('.filter-checkbox').change();
     });
 

@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="{% static 'js/decklist_filters.js' %}"></script>
+
+
 <div class="row">
   <div class="col-md-6 mb-5">
     <img src="../static/img/{{ deck_info.leader }}.png" class="border" />
@@ -14,20 +18,30 @@
     <h2> This Leader has {{ deck_counter }} decklists submitted! </h2>
     <hr></hr>
     <br><br>
-    <h3><strong> Decklist Format </strong></h3>
+    <h3><strong> Show decklists: </strong></h3>
+<div class="row menu">   
+  <div class="col-lg-3">
     
-    <ul class="filters">
-      <li class="active" data-filter="*"><a href="#!"> Both </a></li>
-      <li data-filter=".TCG"><a href="#!"> TCG </a></li>
-      <li data-filter=".OCG"><a href="#!"> OCG </a></li>
-    </ul>
+  </div>
+  <div class="col-lg-3">
+    <label class="list-group-item ">
+      <input class="filter-checkbox mt-1" data-filter="format" value="TCG" type="checkbox" value="true" style="float: left"/>&nbsp; TCG Only
+    </label>
+  </div>
+  <div class="col-lg-3">
+    <label class="list-group-item">
+      <input class="filter-checkbox mt-1" data-filter="format" value="OCG" type="checkbox" style="float: left"/>&nbsp; OCG Only
+    </label>
+  </div>
+</div>
+
   
     <br><br>
-    <h3><strong> Decklist Set </strong></h3>
+    <h3><strong> Leader page in other formats: </strong></h3>
     <ul class="switches">
-      <li><a href="#!"> Archived </a></li>
-      <li class="active"><a href="#!"> OP04 </a></li>
-      <li><a href="#!"> OP05 </a></li>
+      <li><a href="#!"> Nie  </a></li>
+      <li class="active"><a href="#!"> Działa </a></li>
+      <li><a href="#!"> JBC </a></li>
     </ul>
   </div>
 </div>
@@ -43,20 +57,19 @@
     </div>
   {% endfor %}
 </div>
-<a name="decklists"></a>
-<div class="projects">
+
   
 {% for data in decklist_data %}
-  <div class="item {{data.format}} ">
-  <hr></hr>
-  <h1>Decklist {{ data.index }}</h1>
-  {% for deck_id in data.decklist %}
-    <img src="../static/img/{{deck_id}}.png" height="128" width="91.6" class="for_zoom"/>
-  {% endfor %}
-  <h6> Credits: OPTopdecks.com Format: {{data.format}} </h6>
+  <div class = "decklist" data-format="{{data.format}}">
+    <hr></hr>
+    <h1>Decklist {{ data.index }}</h1>
+    {% for deck_id in data.decklist %}
+      <img src="../static/img/{{deck_id}}.png" height="128" width="91.6" class="for_zoom"/>
+    {% endfor %}
+    <h6> Credits: OPTopdecks.com Format: {{data.format}} </h6>
   </div>
 {% endfor %}
-</div>
+
 
 
 

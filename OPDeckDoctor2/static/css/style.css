@@ -30,8 +30,8 @@
 
 .grid-container-leader {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0px;
 }
 .grid-item {
   text-align: center; 
@@ -52,66 +52,9 @@ a img:hover
 }
 
 
-ul.switches{
+.leaderName {
   display: block;
-  width: 100%;
-  margin: 0;
-  padding: 10px 0;
-}
-
-ul.switches > li{
-  list-style: none;
-  display: inline-block;
-}
-
-ul.switches > li > a{
-  display: block;
-  color: #434e5e;
-  text-decoration: none;
-  padding: 5px 20px;
-}
-
-ul.switches > li > a:hover{
-  background-color: #e6e9ed;
-}
-
-ul.switches > li.active > a{
-  color: #fff;
-  background-color: #383838;
-}
-
-ul.filters{
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 10px 0;
-}
-
-ul.filters > li{
-  list-style: none;
-  display: inline-block;
-}
-
-ul.filters > li > a{
-  display: block;
-  color: #434e5e;
-  text-decoration: none;
-  padding: 5px 20px;
-}
-
-ul.filters > li > a:hover{
-  background-color: #e6e9ed;
-}
-
-ul.filters > li.active > a{
-  color: #fff;
-  background-color: #383838;
-}
-
-
-.text {
-  display: block;
-  width: 130px;
+  width: 137.4px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

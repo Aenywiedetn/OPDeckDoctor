@@ -1,28 +1,80 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="{% static 'js/leader_filters.js' %}"></script>
 
 <div class="containter">
   <div class="row">
     <div class="col-lg-12">
 
-    <ul class="filters">
-      <li class="active" data-filter="*"><a href="#!"> All </a></li>
-      <li data-filter=".Red"><a href="#!"> Red </a></li>
-      <li data-filter=".Green"><a href="#!"> Green </a></li>
-      <li data-filter=".Blue"><a href="#!"> Blue </a></li>
-      <li data-filter=".Purple"><a href="#!"> Purple </a></li>
-      <li data-filter=".Black"><a href="#!"> Black </a></li>
-      <li data-filter=".Yellow"><a href="#!"> Yellow </a></li>
-      <li data-filter=".Pure"><a href="#!"> Only pure </a></li>
-    </ul>
-    
-<div class="projects" >
+      <div class="row menu">
+        <div class="col-lg-3">
+        <input class="form-control mb-4 text-center" id="cardSearch" type="text" placeholder="Search by name" >
+        </div>
+        <div class="col-lg-3 filter-block" id="colors">
+          <div class="card mb-4">
+            <h6 class="card-header">Color</h6>
+            <div class="list-group">
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="color" value="red" type="checkbox" style="float: left"/> &nbsp; Red
+              </label>
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="color" value="green" type="checkbox" style="float: left"/> &nbsp; Green
+              </label>
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="color" value="blue" type="checkbox" style="float: left"/>&nbsp; Blue
+              </label>      
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="color" value="purple" type="checkbox" style="float: left"/>&nbsp; Purple
+              </label>
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="color" value="black" type="checkbox" style="float: left"/>&nbsp; Black
+              </label>
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="color" value="yellow" type="checkbox" style="float: left"/>&nbsp; Yellow
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 filter-block" id="sets">
+          <div class="card mb-4">
+            <h6 class="card-header">Set</h6>
+            <div class="list-group list-group-flush">
+              <label class="list-group-item">
+              <input class="filter-checkbox mt-1" data-filter="set" value="OP01" type="checkbox" style="float: left" /> &nbsp; OP01
+              </label> 
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="set" value="OP02" type="checkbox" style="float: left" />&nbsp; OP02
+              </label>     
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="set" value="OP03" type="checkbox" style="float: left"/>&nbsp; OP03
+              </label>
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="set" value="OP04" type="checkbox" style="float: left"/>&nbsp; OP04
+              </label>
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="set" value="OP05" type="checkbox" style="float: left"/>&nbsp; OP05
+              </label>
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="set" value="Starter" type="checkbox" style="float: left"/>&nbsp; Starters
+              </label>
+              <label class="list-group-item">
+                <input class="filter-checkbox mt-1" data-filter="set" value="Promo" type="checkbox" style="float: left"/>&nbsp; Promos
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 filter-block" id="sets">
+          <button class="resetBTN btn btn-outline-secondary mb-3" type="button">Reset filters</button>
+        </div>
+       
+<div class="grid-container-leader" >
   {% for leader in leaders %}
-    <div class="text-center mx-1 item {{leader.color1}} {{leader.color2}} ">
+    <div class="grid-item text-center mx-1" data-color1="{{leader.color1}}" data-color2="{{leader.color2}}" data-set="{{ leader.set }}"  >
       <a href="{% url 'decklistOP04' leader=leader.id %}">
-      <img src="static/img/{{ leader.id }}.png" height="192" width="137.4"   />
-      <h6 class="text">{{leader.name}}</h6>
+      <img src="static/img/{{ leader.id }}.png" height="192" width="137.4"/>
+      <h6 class="leaderName"><b>{{leader.name}}</b></h6>
       </a>
     </div>
   {% endfor %}

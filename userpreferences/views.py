@@ -39,9 +39,7 @@ def index(request):
 
       user_preferences.save()
     else:
-      UserPreference.objects.create(user=request.user, leader1=leader1)
-      UserPreference.objects.create(user=request.user, leader2=leader2)
-      UserPreference.objects.create(user=request.user, leader3=leader3)
+      UserPreference.objects.create(user=request.user, leader1=leader1, leader2=leader2, leader3=leader3)
 
     messages.success(request,'Changes saved')
     return render(request, 'preferences/index.html',{'leaders':leader_data,'user_preferences': user_preferences})

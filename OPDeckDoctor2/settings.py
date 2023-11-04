@@ -145,7 +145,9 @@ DEFAULT_FROM_EMAIL = 'noreply@opdeckdoctor.com'
 EMAIL_PORT = 587
 EMAIL_HOST_PASSWORD = 'zzR4$E-EE_3$ss8'
 
-
+CSRF_TRUSTED_ORIGINS = [
+  'https://opdeckdoctor.com', 'https://opdeckdoctor-production.up.railway.app'
+]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

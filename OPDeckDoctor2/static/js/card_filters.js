@@ -56,5 +56,17 @@ $(document).ready(function () {
   // Checkbox change event
   $("input[type='checkbox'], #cardSearch").on("change input", applyFilters);
 
+  const cardElements = document.querySelectorAll('.for_zoom');
+
+  cardElements.forEach(cardElement => {
+    cardElement.addEventListener('click', function() {
+      if (cardElement.classList.contains('for_zoom')) {
+        cardElement.classList.remove('for_zoom');
+      } else {
+        cardElement.classList.add('for_zoom');
+      }
+    });
+  });
+
 });
 

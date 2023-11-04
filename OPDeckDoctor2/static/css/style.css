@@ -45,11 +45,13 @@ a img
 a img:hover
 {
   transform: scale(1.1);
+  transition: transform 0.3s; 
 }
-.for_zoom:hover
-{
+.for_zoom:hover {
   transform: scale(3);
+  transition: transform 0.3s; 
 }
+
 
 
 .leaderName {
@@ -72,6 +74,7 @@ a img:hover
   display: block;
   width: 96.18px;
   height: 22.23px;
+
 }
 
 /* Basic styling */

@@ -115,6 +115,18 @@ $('.resetBTN').on('click', function () {
         $('.filter-checkbox').change();
     });
 
+const cardElements = document.querySelectorAll('.for_zoom');
+
+  cardElements.forEach(cardElement => {
+    cardElement.addEventListener('click', function() {
+      if (cardElement.classList.contains('for_zoom')) {
+        cardElement.classList.remove('for_zoom');
+      } else {
+        cardElement.classList.add('for_zoom');
+      }
+    });
+  });
+
   $(document).ready(function () {
   $('.number-owned').change(function () {
     var cardId = $(this).data('card-id');

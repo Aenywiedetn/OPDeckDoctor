@@ -79,7 +79,7 @@ class RegistrationView(View):
         email = EmailMessage(
           email_subject,
           email_body,
-          "noreply@semycolon.com",
+          "noreply@opdeckdoctor.com",
           [email],
         )
         email.send()

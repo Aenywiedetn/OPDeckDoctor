@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1z-jojf9xqwzu8#z%6ig@di(jm#hoqq1gnbpy_x02#b7-ygc(r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['opdeckdoctor.com', 'opdeckdoctor-production.up.railway.app', 'localhost', '127.0.0.1']
 
 
@@ -138,12 +138,12 @@ MESSAGE_TAGS = {
   messages.ERROR: 'danger'
 }
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'opdeckdoctorvalidator@gmail.com'
+EMAIL_HOST = 'smtp.privateemail.com'
+EMAIL_HOST_USER = 'noreply@opdeckdoctor.com'
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'opdeckdoctorvalidator@gmail.com'
+DEFAULT_FROM_EMAIL = 'noreply@opdeckdoctor.com'
 EMAIL_PORT = 587
-EMAIL_HOST_PASSWORD = 'chxq rtsx aaow jvvs'
+EMAIL_HOST_PASSWORD = 'zzR4$E-EE_3$ss8'
 
 
 

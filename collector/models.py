@@ -18,5 +18,5 @@ class Card(models.Model):
 class UserInput(models.Model):
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)  
-    number_owned = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(4)])
-  
+    number_owned = models.IntegerField(default = 0, validators=[MinValueValidator(0), MaxValueValidator(2137)])
+    short_note = models.CharField(blank=True, null=True, max_length = 30)

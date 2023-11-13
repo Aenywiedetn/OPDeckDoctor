@@ -25,11 +25,15 @@
             Card browser
             </a>
           </li>
+          {% if user_username %}
+          
           <li class="nav-item">
             <a class="nav-link" href="{% url 'collector' %}">
             Card Collector
             </a>
-          </li>  
+          </li>
+          {% else %}
+        {% endif %}  
         </ul> 
         <hr/>
         {% if user_username %}
@@ -71,8 +75,10 @@
             </ul>
         {% else %}
           <a class="nav-link" href="{% url 'preferences'%}">
-            <h5> Log-in to setup</h5>
+            <h5><b> Login to setup: </b></h5>
           </a>
+          <h5> Card Collector </h5>
+          <h6>&</h6>
           <h5> Quick-access </h5>
         {% endif %} 
         <hr/>

@@ -6,6 +6,9 @@ from OPDeckDoctor2.rounding import round_up
 from .defs import deckView
 
 
+def landing(request):
+  return render(request, 'decks/landing.html')
+
 def index(request):
   return render(request, 'decks/index.html')
 

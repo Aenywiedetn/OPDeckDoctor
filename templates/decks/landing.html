@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>OPDeckDoctor - Welcome</title>
+    <link rel="icon" href="static/img/favicon.png" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="static/css/intro.css">
+    <link rel="stylesheet" href="static/css/intro_bootstrap.min.css">
+</head>
+
+<body>
+    <div class="big-logo mt-4 mx-3">
+        <a href="{% url 'decks' %}">
+        <img src="../static/img/DeckDoctorLogo.png" width="275" height="70.81"/>
+        </a>
+      </div>
+    <div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(static/img/po_one_piece_card_game_a_prota_1683866507_0d160ef8_progressive.jpg);">
+        <div class="container text-center text-md-left">
+            <header>
+                
+                <div class="row justify-content-between">
+                    
+                    <div class="col-6 align-self-center text-right">
+                        <a href="#" class="text-white lead"></a>
+                    </div>
+                </div>
+            </header>
+            <h1 class="display-3 font-weight-bold my-5">
+            	<br>
+            	<br>
+            </h1>
+            <p class="lead text-white my-4">
+                <br>
+                <br> 
+            </p>
+            <a href="{% url 'decks' %}" class="btn my-4 font-weight-bold atlas-cta cta-grey"><h1> Get Started </h1></a>
+        </div>
+    </div>
+    <!-- three-blcok -->
+    <div class="container my-5 py-2">
+        <h2 class="text-center font-weight-bold my-5"> What the site has to offer: </h2>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="static/img/decklists.png" alt="Decklist database" class="mx-auto">
+                <h4>Decklist database</h4>
+                <p>Builds available for every color and leader, all in one place. Check the most included cards!</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="static/img/formats.png" alt="Multiple format support" class="mx-auto">
+                <h4>Multiple format support</h4>
+                <p>Stay in tune with new releases, or explore previous formats both in TCG and OCG</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="static/img/collection.png" alt="Card Collector" class="mx-auto">
+                <h4>Card Collector</h4>
+                <p>Keep track of your collection, make notes and filter cards for new strategies</p>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid feature" id="feature-first">
+        <div class="container my-5">
+            <div class="row justify-content-between text-center text-md-left">
+                <div class="col-md-6">
+                    <br><br><br><br>
+                    <h2 class="font-weight-bold">Try the features and play</h2>
+                    <br>
+                    <p class="my-4 mx-4">Check out what competition includes in their decks.<br>
+                         Be always prepared for new meta.<br> Choose a leader and see what is he up to!<br>
+                         Filter by color or name. Every lea
+                         </p>
+                    <a href="{% url 'all_leaders' %}" class="btn my-2 font-weight-bold atlas-cta cta-grey">Show decklists</a>
+                </div>
+                <div class="col-md-6 ">
+                    <img src="static/img/decklist_check.png" class="mx-auto d-block">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid feature" id="feature-last">
+        <div class="container">
+            <div class="row justify-content-between text-center text-md-left">
+                <div class="col-md-6 flex-md-last">
+                    <br><br><br><br><br>
+                    <h2 class="font-weight-bold text-white">Collect and sort!</h2>
+                    <p class="my-4 mx-4 text-white">
+                        Keep track of your collection!<br>
+                        Save notes and numbers on Your own account database, and never lose a card again!
+                        <br> Join us at OPDeckDoctor and register today!
+                    </p>
+                    <a href="{% url 'register' %}" class="btn my-4 font-weight-bold atlas-cta cta-blue">Register</a>
+                </div>
+                <div class="col-md-6 align-self-center flex-md-first">
+                    <img src="static/img/collection_showcase.png" class="mx-auto d-block">
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+</body>
+
+</html>

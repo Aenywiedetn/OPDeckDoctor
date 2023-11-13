@@ -4,86 +4,23 @@
 {% include 'partials/_messages.html' %}
 
 <div class="container text-center">
-  <h1> Top performing Leaders </h1>
+  <h1> Planned features </h1>
   <hr></hr>
   
-  <div class="row">
-    <div class="col-md-4">
-      <a href="{% url 'decklistOP04' leader='OP04-019' %}">
-      <div class="card">
-        <img class="card-img-top img-fluid" src="static/img/OP04-019.png" alt="photo">
-        <div class="card-block text-center">
-          <h4 class="card-title"> Doflamingo OP04 </h4> </a>
-          <p class="card-text text-center"> Midrange deck focused on getting early card advantage using FILM cards, and then controlling the game with powerfull Events and high-cost Characters</p>
-           
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <a href="{% url 'decklistOP04' leader='OP01-060' %}">
-      <div class="card">
-        <img class="card-img-top img-fluid" src="static/img/OP01-060.png" alt="photo">
-        <div class="card-block text-center">
-          <h4 class="card-title"> Doflamingo OP01 </h4> </a>
-          <p class="card-text text-center"> Control deck focused on getting advantage by using Leader ability after stacking the deck with Character effects, sometimes can be really aggresive.</p>
-           
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <a href="{% url 'decklistOP04' leader='OP01-002' %}">
-      <div class="card">
-        <img class="card-img-top img-fluid" src="static/img/OP01-002.png" alt="photo">
-        <div class="card-block text-center">
-          <h4 class="card-title">Law OP01</h4> </a>
-          <p class="card-text">Aggresive deck focusing on swarming the board with low-cost Characters, and using Leader ability to swap them for higher cost counterparts from the hand.</p>
-           
-        </div>
-      </div>
-    </div>
+  <div class="row text-center">
+    
+    <ul>
+      <li>Decklist submission form from users </li> 
+      <li>Comparing decklists to collection state, letting know whitch cards to get </li>
+      <li>Splitting pages for different formats, this will surely be implemented before OP05 hits</li> 
+      <li>I'd like to make it more viable on mobile devices  </li> 
+      <li>Lastly I'd like to connect this site to Cardmarket API, don't know how hard this will be tho XD  </li> 
+    </ul>
   </div>
+</div>    
 <div class="container text-center">
   <hr></hr>
-  <h1> Most Promising Underdogs</h1>
+  <h1> Welcome to OP DeckDoctor!</h1>
   <hr></hr>
-  
-  <div class="row">
-    <div class="col-md-4">
-      <a href="{% url 'decklistOP04' leader='OP03-058' %}">
-      <div class="card">
-        <img class="card-img-top img-fluid" src="static/img/OP03-058.png" alt="photo">
-        <div class="card-block text-center">
-          <h4 class="card-title"> Rizzburg OP03 </h4>
-        </a>
-          <p class="card-text text-center"> Midrange deck focused on getting early board presence by cheating out big threats with Leaders Ability. With new support coming in OP04 he is still useless</p>
-            
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <a href="{% url 'decklistOP04' leader='OP01-061' %}">
-      <div class="card">
-        <img class="card-img-top img-fluid" src="static/img/OP01-061.png" alt="photo">
-        <div class="card-block text-center">
-          <h4 class="card-title"> Kaido OP01 </h4> </a>
-          <p class="card-text text-center"> Control deck focused on god knows what, making some Kaido shit play, but now in two colors. New support might be neat. Has 1 HP less, that's probably good, right?</p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <a href="{% url 'decklistOP04' leader='OP03-022' %}">
-      <div class="card">
-        <img class="card-img-top img-fluid" src="static/img/OP03-022.png" alt="photo">
-        <div class="card-block text-center">
-          <h4 class="card-title">Arlong OP03</h4> </a>
-          <p class="card-text">Aggresive deck focusing on swarming the board with Trigger characters thanks to Leaders ability. Makes use of two archetypes and frankly does not work</p>
-            
-        </div>
-      </div>
-    </div>
-  </div>
-<br>
-
-</div>
+  <img src='../static/img/po_one_piece_card_game_a_prota_1683866507_0d160ef8_progressive.jpg' height="374.68" width="1000"/>
 {% endblock content %}

@@ -84,13 +84,15 @@ WSGI_APPLICATION = 'OPDeckDoctor2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
+        'NAME': 'OnePiece DeckDoctor',
         'USER': 'postgres',
-        'PASSWORD': '56D4ABC-f5-1CDG-fb35F*A4BcA1*F5d',
-        'HOST': 'viaduct.proxy.rlwy.net',
-        'PORT': '43465'
+        'PASSWORD': 'bazadanych',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
+
+
 
 
 # Password validation

@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col-md-6 mb-5">
-      <img src="../static/img/{{ leader }}.png" class="border" />
+      <img src="{% static 'img/' %}{{ leader }}.png" class="border" />
     </div>
     <div class="col-md-6 text-center">
       <h1> {{ deck.deck_info.leader }} </h1>
@@ -52,7 +52,7 @@
   <div class="grid-container " >
     {% for zestaw in deck.sorted_avg %}
       <div class="grid-item">
-        <img src="../static/img/{{ zestaw.1 }}.png" height="128" width="91.6" class="for_zoom" />
+        <img src="{% static 'img/' %}{{zestaw.1}}.png" height="128" width="91.6" class="for_zoom" />
         <h6>{{ zestaw.0 }}</h6>
       </div>
     {% endfor %}
@@ -64,7 +64,7 @@
       <hr></hr>
       <h1>Decklist {{ data.index }}</h1>
       {% for deck_id in data.decklist %}
-        <img src="../static/img/{{deck_id}}.png" height="128" width="91.6" class="for_zoom"/>
+        <img src="{% static 'img/' %}{{deck_id}}.png" height="128" width="91.6" class="for_zoom"/>
       {% endfor %}
       <h6> Credits: OPTopdecks.com Format: {{data.format}} </h6>
     </div>

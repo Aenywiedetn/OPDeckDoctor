@@ -5,8 +5,8 @@ from django.contrib.auth.decorators import login_required
 from OPDeckDoctor2.rounding import round_up
 
 
-def deckView(leader_number):
-  deck_instances = Deck.objects.filter(leader=leader_number)
+def deckView(leader_number, leader_set):
+  deck_instances = Deck.objects.filter(leader=leader_number, set=leader_set)
   decklist_data = []
   deck_info = Deck.objects.filter(leader=leader_number).first()
   giga = []

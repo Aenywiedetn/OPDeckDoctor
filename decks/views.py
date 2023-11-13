@@ -17,8 +17,8 @@ def all_leaders(request):
   context = { 'leaders' : leaders}
   return render(request, 'decks/all_leaders.html', context)
 
-def decklistOP04(request, leader):
-    deck = deckView(leader)
+def decklistOP04(request, leader, deck_set):
+    deck = deckView(leader, deck_set)
     context = {'deck': deck , 'leader': leader}
     return render(request, 'decks/leader_view_base.html', context)
 

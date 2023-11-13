@@ -84,11 +84,11 @@ WSGI_APPLICATION = 'OPDeckDoctor2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'OnePiece DeckDoctor',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'bazadanych',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'PASSWORD': '56D4ABC-f5-1CDG-fb35F*A4BcA1*F5d',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '43465'
     }
 }
 
@@ -130,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[os.path.join(BASE_DIR,'OPDeckDoctor2/static')]
+STATICFILES_DIRS=[os.path.join(BASE_DIR,'OPDeckDoctor2/static/')]
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 

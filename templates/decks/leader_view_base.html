@@ -15,7 +15,7 @@
       <h2><strong>{{ deck.deck_info.color1 }} {{ deck.deck_info.color2 }}</strong></h2>
       <br><br>
       <hr></hr>
-      <h2> This Leader has {{ deck.deck_counter }} decklists submitted! </h2>
+      <h2> This Leader has {{ deck.deck_counter }} decklists submitted in {{ currentFormat }}! </h2>
       <hr></hr>
       <br><br>
       <h3><strong> Show decklists: </strong></h3>
@@ -38,11 +38,13 @@
     
       <br><br>
       <h3><strong> Leader page in other formats: </strong></h3>
-      <ul class="switches">
-        <li><a href="#!"> Nie  </a></li>
-        <li class="active"><a href="#!"> Działa </a></li>
-        <li><a href="#!"> JBC </a></li>
-      </ul>
+      <div class="btn-group" role="group">
+        <a href="{% url 'decklist' leader=leader  deck_set='OP01' %}" class="btn btn-secondary {% if op01 == None%}disabled{%endif%}">OP01</a>
+        <a href="{% url 'decklist' leader=leader  deck_set='OP02' %}" class="btn btn-secondary {% if op02 == None%}disabled{%endif%}">OP02</a>
+        <a href="{% url 'decklist' leader=leader  deck_set='OP03' %}" class="btn btn-secondary {% if op03 == None%}disabled{%endif%}">OP03</a>
+        <a href="{% url 'decklist' leader=leader  deck_set='OP04' %}" class="btn btn-secondary {% if op04 == None%}disabled{%endif%}">OP04</a>
+        <a href="{% url 'decklist' leader=leader  deck_set='OP05' %}" class="btn btn-secondary {% if op05 == None%}disabled{%endif%}">OP05</a>
+      </div>
     </div>
   </div>
 

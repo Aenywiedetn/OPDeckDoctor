@@ -17,9 +17,15 @@ def all_leaders(request):
   context = { 'leaders' : leaders}
   return render(request, 'decks/all_leaders.html', context)
 
-def decklistOP04(request, leader, deck_set):
+def decklist(request, leader, deck_set):
+    op01 = Deck.objects.filter(leader=leader, set='OP01').first()
+    op02 = Deck.objects.filter(leader=leader, set='OP02').first()
+    op03 = Deck.objects.filter(leader=leader, set='OP03').first()
+    op04 = Deck.objects.filter(leader=leader, set='OP04').first()
+    op05 = Deck.objects.filter(leader=leader, set='OP05').first()
     deck = deckView(leader, deck_set)
-    context = {'deck': deck , 'leader': leader}
+    currentFormat = deck_set
+    context = {'deck': deck , 'leader': leader, 'op01' : op01, 'op02' : op02, 'op03' : op03, 'op04' : op04, 'op05' : op05, 'currentFormat' : currentFormat }
     return render(request, 'decks/leader_view_base.html', context)
 
 

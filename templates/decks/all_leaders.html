@@ -72,7 +72,7 @@
 <div class="grid-container-leader" >
   {% for leader in leaders %}
     <div class="grid-item text-center mx-1" data-color1="{{leader.color1}}" data-color2="{{leader.color2}}" data-set="{{ leader.set }}"  >
-      <a href="{% url 'decklistOP04' leader=leader.id deck_set='OP04' %}">
+      <a href="{% url 'decklist' leader=leader.id deck_set='OP04' %}">
       <img src="static/img/{{ leader.id }}.png" height="192" width="137.4"/>
       <h6 class="leaderName"><b>{{leader.name}}</b></h6>
       </a>

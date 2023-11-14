@@ -4,7 +4,7 @@ from .models import Card, UserInput
 from django.contrib.auth.decorators import login_required
 from .forms import UserNumberForm, UserNoteForm
 from django.contrib import messages
-from .tests import fill_images_base64
+from .tests import card_order_check
 
 
 # Create your views here.

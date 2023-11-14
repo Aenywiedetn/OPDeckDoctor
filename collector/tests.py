@@ -22,3 +22,8 @@ def fill_images_base64():
         else:
             print(f"Image not found for Card {card.id}")
 
+def card_order_check():
+    cards = Card.objects.all()
+
+    for card in cards:
+        print(f"Order is: {card.id}")

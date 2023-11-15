@@ -209,12 +209,28 @@
 <hr></hr>
 <div class="grid-container" id="filterArea" >
   {% for card in cards %}
+  <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-cost="{{ card.cost }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-counter2k="{{ card.counter2k }}" data-blocker="{{ card.blocker }}" data-set="{{ card.set }}" data-rarity="{{card.rarity}}" data-card-id="{{ card.id }}"  >
+      <a>
+          <input class="number-owned text-center" name="number_owned" type="number" min="0" max="2137" placeholder="?" data-card-id="{{ card.id }}" 
+          value="{% for user_input in user_inputs %}{% if user_input.card.id == card.id %}{{ user_input.number_owned }}{% endif %}{% empty %}0{% endfor %}">
+          <img src="../static/img/placeholder.png" data-src="../static/img/{{ card.id }}.png" height="134.4" width="96.18" class="for_zoom" loading="lazy" alt="{{ card.name }}">
+          <h6 class="cardName"><b>{{ card.name }}</b></h6>
+          <input class="short_note text-center" name="short_note" type="text" placeholder="{{ card.name }}"
+          data-card-id="{{ card.id }}"
+          value="{% for user_input in user_inputs %}{% if user_input.card.id == card.id %}{{ user_input.short_note|default_if_none:'' }}{% endif %}{% endfor %}">
+      </a>
+  </div>
+{% endfor %}
+
+
+  {% for card in cards %}
   
     <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-cost="{{ card.cost }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-counter2k="{{ card.counter2k }}" data-blocker="{{ card.blocker }}" data-set="{{ card.set }}" data-rarity="{{card.rarity}}" data-card-id="{{ card.id }}"  >
       <a>
        <input class="number-owned text-center" name="number_owned" type="number" min="0" max="2137" placeholder="  ?" data-card-id="{{ card.id }}" 
         value="{% for user_input in user_inputs %}{% if user_input.card.id == card.id %}{{ user_input.number_owned }}{% endif %}{% empty %}0{% endfor %}">
-        <img src="../static/img/Don.png" data-src="../static/img/{{ card.id }}.png" height="134.4" width="96.18" class="for_zoom" loading="lazy"/>
+        <img src="../static/img/placeholder.png" data-src="../static/img/{{ card.id }}.png" height="134.4" width="96.18" class="for_zoom" loading="lazy"/>
+        <div class="loading-spinner"></div>
         <h6 class="cardName"><b>{{card.name}}</b></h6>
 
         <input class="short_note text-center" name="short_note" type="text" placeholder="{{card.name}}"

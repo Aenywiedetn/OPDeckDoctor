@@ -65,7 +65,7 @@ $(document).ready(function () {
       const placeholderValue = '  ?'
       const numberOwned = $card.find(".number-owned").val();
       const noteAdded = $card.find(".short_note").val();
-      console.log("noteAdded:", noteAdded);
+      
   
 
       const colorMatch = colorFilters.length === 0 || colorFilters.includes(cardColor);
@@ -79,8 +79,7 @@ $(document).ready(function () {
 			const setMatch = setFilters.length === 0 || setFilters.includes(cardSet);
       const nameMatch = cardName.includes(cardNameFilter);
       const noteMatch = noteFilters.length === 0 || (noteFilters.includes('noteadded') && noteAdded !== '');
-      console.log("noteFilters:", noteFilters);
-      console.log("noteMatch:", noteMatch);
+      
       let collectionMatch = true;
 
         if (collectionFilters.includes("owned") && (numberOwned === placeholderValue || numberOwned < 4)) {
@@ -96,7 +95,7 @@ $(document).ready(function () {
       
       const shouldShow = colorMatch && typeMatch && counterMatch && triggerMatch && blockerMatch && nameMatch && counter2kMatch && costMatch && rarityMatch && setMatch &&collectionMatch &&noteMatch;
       $card.toggle(shouldShow);
-      console.log(`Card ID: ${$card.data("card-id")}, noteAdded: "${noteAdded}", noteMatch: ${noteMatch}, noteFilters: ${JSON.stringify(noteFilters)}`);
+      
 
 
 

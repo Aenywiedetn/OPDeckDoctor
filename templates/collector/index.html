@@ -81,7 +81,7 @@
       {% for card in cards %}
         <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-counter2k="{{ card.counter2k }}" data-blocker="{{ card.blocker }}"   >
           <a>
-            <img src="../static/img/{{ card.id }}.png" height="134.4" width="96.18" class="for_zoom" />
+            <img src="../static/img/placeholder.png" data-src="../static/img/{{ card.id }}.png" height="134.4" width="96.18" class="for_zoom" loading="lazy"/>
             <h6 class="cardName"><b>{{card.name}}</b></h6>
           </a>
         </div>

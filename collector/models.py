@@ -14,7 +14,6 @@ class Card(models.Model):
   blocker = models.BooleanField(default=False)
   trigger = models.BooleanField(default=False)
   rarity = models.CharField(default='')
-  image_path = models.CharField(max_length=255, default='', blank=True)
 
 class UserInput(models.Model):
     card = models.ForeignKey(Card, on_delete=models.CASCADE)

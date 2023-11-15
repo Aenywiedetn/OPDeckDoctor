@@ -5,6 +5,7 @@
 {% block content %}
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script type="text/javascript" src="{% static 'js/card_filters.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
   
 
@@ -80,7 +81,7 @@
       {% for card in cards %}
         <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-counter2k="{{ card.counter2k }}" data-blocker="{{ card.blocker }}"   >
           <a>
-            <img src="../static/img/{{ card.id }}.png" height="134.4" width="96.18" class="for_zoom"/>
+            <img src="../static/img/{{ card.id }}.png" height="134.4" width="96.18" class="for_zoom" />
             <h6 class="cardName"><b>{{card.name}}</b></h6>
           </a>
         </div>

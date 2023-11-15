@@ -43,6 +43,11 @@ $(document).ready(function () {
     $("input[data-filter='collection']").on("change", function () {
       $("input[data-filter='collection']").not(this).prop("checked", false);
     });
+
+    const noteFilters = $("input[data-filter='note']:checked").map(function () {
+      return $(this).val();
+    }).get();
+
     const cardNameFilter = $("#cardSearch").val().toLowerCase();
 
     $(".grid-item").each(function () {
@@ -57,6 +62,11 @@ $(document).ready(function () {
 			const cardRarity = $card.data("rarity");
 			const cardSet = $card.data("set");
       const cardName = $card.find(".cardName").text().toLowerCase();
+      const placeholderValue = '  ?'
+      const numberOwned = $card.find(".number-owned").val();
+      const noteAdded = $card.find(".short_note").val();
+      console.log("noteAdded:", noteAdded);
+  
 
       const colorMatch = colorFilters.length === 0 || colorFilters.includes(cardColor);
       const typeMatch = typeFilters.length === 0 || typeFilters.includes(cardType);
@@ -68,24 +78,31 @@ $(document).ready(function () {
 			const rarityMatch = rarityFilters.length === 0 || rarityFilters.includes(cardRarity);
 			const setMatch = setFilters.length === 0 || setFilters.includes(cardSet);
       const nameMatch = cardName.includes(cardNameFilter);
-      const numberOwned = parseInt($card.find(".number-owned").val());
-        let collectionMatch = true;
+      const noteMatch = noteFilters.length === 0 || (noteFilters.includes('noteadded') && noteAdded !== '');
+      console.log("noteFilters:", noteFilters);
+      console.log("noteMatch:", noteMatch);
+      let collectionMatch = true;
 
-        if (collectionFilters.includes("owned") && numberOwned !== 4) {
+        if (collectionFilters.includes("owned") && (numberOwned === placeholderValue || numberOwned < 4)) {
           collectionMatch = false;
         }
-        if (collectionFilters.includes("missing") && (numberOwned < 1 || numberOwned > 3)) {
+      
+        if (collectionFilters.includes("missing") && numberOwned > 3) {
           collectionMatch = false;
         }
-        if (collectionFilters.includes("notowned") && numberOwned > 0) {
+        if (collectionFilters.includes("more") && (numberOwned === placeholderValue || numberOwned < 5)) {
           collectionMatch = false;
         }
-
-      const shouldShow = colorMatch && typeMatch && counterMatch && triggerMatch && blockerMatch && nameMatch && counter2kMatch && costMatch && rarityMatch && setMatch &&collectionMatch;
+      
+      const shouldShow = colorMatch && typeMatch && counterMatch && triggerMatch && blockerMatch && nameMatch && counter2kMatch && costMatch && rarityMatch && setMatch &&collectionMatch &&noteMatch;
       $card.toggle(shouldShow);
+      console.log(`Card ID: ${$card.data("card-id")}, noteAdded: "${noteAdded}", noteMatch: ${noteMatch}, noteFilters: ${JSON.stringify(noteFilters)}`);
+
+
+
     });
   }
-
+  
   var numberbox = document.querySelector('.collection-hiding-checkbox');
   var numberOwnedInputs = document.querySelectorAll('.number-owned');
   numberbox.addEventListener('change', function() {
@@ -95,12 +112,22 @@ $(document).ready(function () {
     });
   });
   
+  
+
+  
+
   var namebox = document.querySelector('.names-hiding-checkbox');
+  var labelText = document.querySelector('.label-text');
   var cardNameElements = document.querySelectorAll('.cardName');
+  var cardNoteElements = document.querySelectorAll('.short_note');
   namebox.addEventListener('change', function() {
     var displayValue = namebox.checked ? 'none' : 'block';
+    labelText.textContent = (namebox.checked ? '\u00A0\u00A0\u00A0 Show Names' : '\u00A0\u00A0\u00A0 Show Notes');
     cardNameElements.forEach(function(cardName) {
       cardName.style.display = displayValue;
+    });
+    cardNoteElements.forEach(function(cardNote) {
+      cardNote.style.display = namebox.checked ? 'block' : 'none';
     });
   });
 
@@ -115,38 +142,85 @@ $('.resetBTN').on('click', function () {
         $('.filter-checkbox').change();
     });
 
-  $(document).ready(function () {
-  $('.number-owned').change(function () {
-    var cardId = $(this).data('card-id');
-    var numberOwned = $(this).val();
+const cardElements = document.querySelectorAll('.for_zoom');
 
-    $.ajax({
-    type: 'POST',
-    url: '/collector/update_user_input/' + cardId + '/',
-    data: {
-        csrfmiddlewaretoken: csrfToken,
-        number_owned: numberOwned
-    },
-    beforeSend: function (xhr) {
-        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    },
-    success: function (data) {
-        if (data.success) {
-          var cardId = data.card_id;  // You need to send card_id in the AJAX response
-        var newNumberOwned = data.new_number_owned;
-        var numberOwnedInput = $('.number-owned[data-card-id="' + cardId + '"]');
-        numberOwnedInput.val(newNumberOwned);
-        } else {
-            // Handle failure (e.g., show error message)
+  cardElements.forEach(cardElement => {
+    cardElement.addEventListener('click', function() {
+      if (cardElement.classList.contains('for_zoom')) {
+        cardElement.classList.remove('for_zoom');
+      } else {
+        cardElement.classList.add('for_zoom');
+      }
+    });
+  });
+
+  $(document).ready(function () {
+    $('.number-owned').change(function () {
+      var cardId = $(this).data('card-id');
+      var numberOwned = $(this).val();
+  
+      $.ajax({
+        type: 'POST',
+        url: '/collector/update_number_owned/' + cardId + '/',
+        data: {
+          csrfmiddlewaretoken: csrfToken,
+          number_owned: numberOwned
+        },
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        },
+        success: function (data) {
+          if (data.success) {
+            var cardId = data.card_id;
+            var newNumberOwned = data.new_number_owned;
+            var numberOwnedInput = $('.number-owned[data-card-id="' + cardId + '"]');
+            numberOwnedInput.val(newNumberOwned);
+          } else {
+            alert('Error: Unable to update the number owned.');
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("AJAX request failed:", status, error);
         }
-    },
-    error: function () {
-        // Handle AJAX error
-    }
-});
+      });
+    });
+    
+    $('.short_note').change(function () {
+      var cardId = $(this).data('card-id');
+      var shortNote = $(this).val();
+  
+      $.ajax({
+        type: 'POST',
+        url: '/collector/update_short_note/' + cardId + '/',
+        data: {
+          csrfmiddlewaretoken: csrfToken,
+          short_note: shortNote
+        },
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        },
+        success: function (data) {
+          if (data.success) {
+            var cardId = data.card_id;
+            var newShortNote = data.new_short_note;
+            var shortNoteInput = $('.short-note[data-card-id="' + cardId + '"]');
+            shortNoteInput.val(newShortNote);
+            console.log("AJAX success. Data received:", data);
+          } else {
+            alert('Error: Unable to update the note.');
+            console.error("AJAX request failed:", error);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("AJAX request failed:", status, error);
+        }
+      });
+    });
+
+
+      
+
+  });
 
    
   });
-});
-
-});

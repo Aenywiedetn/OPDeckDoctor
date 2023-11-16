@@ -54,7 +54,7 @@
   <div class="grid-container " >
     {% for zestaw in deck.sorted_avg %}
       <div class="grid-item">
-        <img src="{% static 'img/' %}{{zestaw.1}}.png" height="128" width="91.6" class="for_zoom" />
+        <img src="{% static 'img/'placeholder.png %}" data-src="{% static 'img/' %}{{zestaw.1}}.png" height="128" width="91.6" class="for_zoom" loading="lazy" />
         <h6>{{ zestaw.0 }}</h6>
       </div>
     {% endfor %}
@@ -66,7 +66,7 @@
       <hr></hr>
       <h1>Decklist {{ data.index }}</h1>
       {% for deck_id in data.decklist %}
-        <img src="{% static 'img/' %}{{deck_id}}.png" height="128" width="91.6" class="for_zoom"/>
+        <img src="{% static 'img/'placeholder.png %}" data-src="{% static 'img/' %}{{deck_id}}.png" height="128" width="91.6" class="for_zoom" loading="lazy"/>
       {% endfor %}
       <h6> Credits: OPTopdecks.com Format: {{data.format}} </h6>
     </div>

@@ -111,10 +111,6 @@ $(document).ready(function () {
     });
   });
   
-  
-
-  
-
   var namebox = document.querySelector('.names-hiding-checkbox');
   var labelText = document.querySelector('.label-text');
   var cardNameElements = document.querySelectorAll('.cardName');
@@ -133,7 +129,7 @@ $(document).ready(function () {
   // Initial filter
   applyFilters();
 
-  // Checkbox change event
+  
   $("input[type='checkbox'], #cardSearch").on("change input", applyFilters);
 $('.resetBTN').on('click', function () {
         
@@ -220,6 +216,6 @@ const cardElements = document.querySelectorAll('.for_zoom');
       
 
   });
-
+  
    
   });

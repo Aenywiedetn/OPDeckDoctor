@@ -213,7 +213,7 @@
       <a>
           <input class="number-owned text-center" name="number_owned" type="number" min="0" max="2137" placeholder="?" data-card-id="{{ card.id }}" 
           value="{% for user_input in user_inputs %}{% if user_input.card.id == card.id %}{{ user_input.number_owned }}{% endif %}{% empty %}0{% endfor %}">
-          <img src="../static/img/placeholder.png" data-src="../static/img/{{ card.id }}.png" height="134.4" width="96.18" class="for_zoom" loading="lazy" alt="{{ card.name }}">
+          <img src="{% static 'img/placeholder.png' %}" data-src="{% static 'img/' %}{{card.id}}.png" height="134.4" width="96.18" class="for_zoom" loading="lazy" alt="{{ card.name }}">
           <h6 class="cardName"><b>{{ card.name }}</b></h6>
           <input class="short_note text-center" name="short_note" type="text" placeholder="{{ card.name }}"
           data-card-id="{{ card.id }}"

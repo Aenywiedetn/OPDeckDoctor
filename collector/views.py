@@ -13,11 +13,13 @@ def index(request):
   context = { 'cards' : cards}
   return render(request, 'collector/index.html', context)
 
+
 @login_required(login_url='/authentication/login')
 def collector(request):
-  cards = Card.objects.all()
-  context = { 'cards' : cards}
-  return render(request, 'collector/collector.html', context)
+    cards = Card.objects.all()
+    user_inputs = UserInput.objects.filter(user=request.user)
+    context = {'cards': cards, 'user_inputs': user_inputs}
+    return render(request, 'collector/collector.html', context)
 
 
 @login_required(login_url='/authentication/login')
@@ -73,9 +75,3 @@ def update_short_note(request, card_id):
     return render(request, 'collector/collector.html', {'form': form, 'card': card})
 
 
-@login_required(login_url='/authentication/login')
-def collector(request):
-    cards = Card.objects.all()
-    user_inputs = UserInput.objects.filter(user=request.user)
-    context = {'cards': cards, 'user_inputs': user_inputs}
-    return render(request, 'collector/collector.html', context)

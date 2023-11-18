@@ -17,9 +17,15 @@ def index(request):
 @login_required(login_url='/authentication/login')
 def collector(request):
     cards = Card.objects.all()
-    user_inputs = UserInput.objects.filter(user=request.user)
-    context = {'cards': cards, 'user_inputs': user_inputs}
+    context = {'cards': cards }
     return render(request, 'collector/collector.html', context)
+
+
+def load_user_inputs(request):
+    if request.user.is_authenticated:
+        user_inputs = list(UserInput.objects.filter(user=request.user).values())
+        return JsonResponse({'user_inputs': user_inputs})
+    return JsonResponse({'user_inputs': []})
 
 
 @login_required(login_url='/authentication/login')

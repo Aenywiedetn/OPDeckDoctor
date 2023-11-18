@@ -7,6 +7,7 @@
 <script> var csrfToken = "{{ csrf_token|escapejs }}"; </script>
 <script type="text/javascript" src="{% static 'js/collection_filters.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
 <h3 class="mb-4 border-bottom pb-1">Your collection</h3>
 <div class="row menu">
   <div class="col-lg-3">
@@ -211,8 +212,7 @@
   {% for card in cards %}
   <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-cost="{{ card.cost }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-counter2k="{{ card.counter2k }}" data-blocker="{{ card.blocker }}" data-set="{{ card.set }}" data-rarity="{{card.rarity}}" data-card-id="{{ card.id }}"  >
       <a>
-          <input class="number-owned text-center" name="number_owned" type="number" min="0" max="2137" placeholder="?" data-card-id="{{ card.id }}" 
-          value="{% for user_input in user_inputs %}{% if user_input.card.id == card.id %}{{ user_input.number_owned }}{% endif %}{% empty %}0{% endfor %}">
+          <input class="number-owned text-center" name="number_owned" type="number" min="0" max="2137" placeholder="Loading..." data-card-id="{{ card.id }}">
           <img src="{% static 'img/placeholder.png' %}" data-src="{% static 'img/' %}{{card.id}}.png" height="134.4" width="96.18" class="for_zoom" loading="lazy" alt="{{ card.name }}">
           <h6 class="cardName"><b>{{ card.name }}</b></h6>
           <input class="short_note text-center" name="short_note" type="text" placeholder="{{ card.name }}"

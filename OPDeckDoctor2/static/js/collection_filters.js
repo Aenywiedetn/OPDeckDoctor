@@ -216,6 +216,44 @@ const cardElements = document.querySelectorAll('.for_zoom');
       
 
   });
+
+  var numberOwnedInput = $('.number-owned');
+// Load user inputs async
+  $.ajax({
+          url: '/collector/load_user_inputs/', 
+          method: 'GET',
+          
+          success: function(response) {
+              
+              var userInputs = response.user_inputs;
+              updateUserInputs(userInputs); 
+          },
+          error: function(error) {
+
+              console.error('Error fetching user inputs:', error);
+              numberOwnedInput.attr('placeholder', '?');
+          }
+      });
   
+      
+      function updateUserInputs(userInputs) {
+        userInputs.forEach(function(input) {
+            var cardId = input.card_id;
+            var numberOwned = input.number_owned;
+            var shortNote = input.short_note;
+    
+            var userInputElement = $('[data-card-id="' + cardId + '"]');
+            if (userInputElement.length > 0) {
+                userInputElement.val(numberOwned);
+                numberOwnedInput.attr('placeholder', '?');
+                var shortNoteElement = userInputElement.siblings('.short_note'); 
+                if (shortNoteElement.length > 0) {
+                    shortNoteElement.val(shortNote);
+                }
+            } 
+        });
+    }
+});
+
    
-  });
+ 

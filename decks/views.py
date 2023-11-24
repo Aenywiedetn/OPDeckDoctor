@@ -12,6 +12,9 @@ def landing(request):
 def index(request):
   return render(request, 'decks/index.html')
 
+def charts(request):
+    return render(request, 'decks/charts.html')
+
 def all_leaders(request):
   leaders = Leader.objects.all()
   context = { 'leaders' : leaders}

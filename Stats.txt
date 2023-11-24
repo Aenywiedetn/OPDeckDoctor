@@ -1,0 +1,175 @@
+OP01 TCG - 169 Decks total
+Mono Red - 34 decks (26 Zoro, 8 ST1 Luffy)
+Mix Red - 16 decks (14 Law, 2 OP01 Luffy)
+Mono Green - 40 decks (1 Oden, 39 Kid)
+Mix Green - 16 decks (14 Law, 2 OP01 Luffy)
+Mono Blue - 37 decks (28 Doffy, 9x Croc ST)
+Mix Blue - 3 decks (3x Croc OP01)
+Mono Purple - 39 decks (3x King, 36x Kaido)
+Mix Purple - 3 decks (3x Croc OP01)
+SCORES OP 1TCG
+Red - 42 decks = 24.9%
+Green - 48 decks = 28.4%
+Blue - 38,5 decks = 22.8%
+Purple - 40,5 decks = 23.9%
+
+OP01 OCG - 130 Decks total
+Mono Red - 25 decks (1 Uta, 16 Zoro, 8 ST1 Luffy)
+Mix Red - 17 decks (16 Law, 1 OP01 Luffy)
+Mono Green - 43 decks (43 Kid)
+Mix Green - 17 decks (16 Law, 1 OP01 Luffy)
+Mono Blue - 11 decks (8 Doffy, 3x Croc ST)
+Mix Blue - 1 decks (1x Croc OP01)
+Mono Purple - 33 decks (1x King, 32x Kaido)
+Mix Purple - 1 decks (1x Croc OP01)
+SCORES OP1 OCG
+Red - 33.5 decks = 25.8%
+Green - 51.5 decks = 39.6%
+Blue - 11,5 decks = 8.8%
+Purple - 33.5 decks = 25.8%
+
+const chartColors = ["#b3111e", "#238d6c", "#167bb6", "#793c89", "#1a1a1a", "#e6dc62"];
+
+OP02 TCG - 176 Decks total
+Mono Red - 77 (31 Zoro 41 WB 5 STLufa)
+Mix Red - 29 (24 Law 3 LufaOP1 2 Garp)
+Mono Green - 34 (21 Kinemon 13 Kid)
+Mix Green - 28 (24 Law 3LufaOP1 1 Sanji)
+Mono Blue - 11 (8 Doffy 2 Ivankov 1 CrocST)
+Mix Blue - 1 (Sanji)
+Mono Purple - 11 (1 King 4 Magulony 6 Kaido)
+Mix Purple - 1 (Zefir)
+Mono Black - 12 (Smoker)
+Mix Black - 3 (2 garp 1 Zefir)
+SCORES OP2 TCG
+Red - 91.5 decks = 52.0%
+Green - 48 decks = 27.3%
+Blue - 11.5 decks = 6.5%
+Purple - 11.5 decks = 6.5%
+Black - 13.5 decks = 7.7%
+
+OP02 OCG -  246 Decks total
+Mono Red - 68 (7 LufyST, 18 WB, 43 Zoro )
+Mix Red - 30 (25 Law 5 LufaOp01)
+Mono Green - 65 (1 Oden, 49 Kinemon, 15 Kid)
+Mix Green - 33 (25 Law 5 LufaOp01 3 Sanji)
+Mono Blue - 25 (4 Doffy 19 Ivankov 2 CrocST)
+Mix Blue - 3 (3 Sanji)
+Mono Purple - 28 (1 Magulon 27 Kaido)
+Mix Purple - 5 (Zefir)
+Mono Black - 22 (21 Smoker 1 Sakazuki)
+Mix Black - 5 (Zefir)
+SCORES OP2 OCG
+Red - 83 decks = 33.7%
+Green - 81.5 decks = 33.1%
+Blue - 26.5 decks = 10.8%
+Purple - 30.5 decks = 12.4%
+Black - 24.5 decks = 10%
+
+OP03 TCG - 209 Decks total
+Mono Red - 90 (39 Zoro 46 WB 4 Ace 1 STLufa)
+Mix Red - 33 (32 Law 1 Garp)
+Mono Green - 13 (1 Kinemon 1 Kuro 11 Kid)
+Mix Green - 35 (32 Law 1 Sanji 2 Arlong)
+Mono Blue - 20 (9 Doffy 6 Nami 5 CrocST)
+Mix Blue - 1 (Sanji)
+Mono Purple - 5 (1 King 2 Magulony 2 Kaido)
+Mix Purple - 0
+Mono Black - 16 (4 smoker 11 gucci 1 ST8Lufa)
+Mix Black - 4 (1 Garp 3 Linlin)
+Mono Yellow - 26 (20 Katakuri 2 STLinlin 4 STYamato)
+Mix Yellow - 5 (2 Arlong 3 Linlin)
+SCORES OP3 TCG
+Red - 106.5 decks = 51.0%
+Green - 30.5 decks = 14.6%
+Blue - 20.5 decks = 9.8%
+Purple - 5 decks = 2.4%
+Black - 18 decks = 8.6%
+Yellow - 28.5 decks = 13.6%
+
+
+OP03 OCG - 310 Decks total
+Mono Red - 142 (43 Zoro 67 WB 29 Ace 3 ST01Lufa)
+Mix Red - 22 (Law)
+Mono Green - 22 (9 Kinemon, 2 Kuro, 11 Kid)
+Mix Green - 22 (Law)
+Mono Blue - 30 (8 Doffy, 2 Ivankov, 14 Nami, 6 CrocST )
+Mix Blue - 1 (Blurple Croc)
+Mono Purple - 10 (1 King, 4 Magulon, 1 Rizz, 4 Kaido)
+Mix Purple - 3 (1 BlurpleCroc, 2 Zefir)
+Mono Black - 35 (7 Smoker, 25 Gucci, 1 SakazukiST, 2 LufaST8)
+Mix Black - 6 (2 Zefir, 2 OPLinlin)
+Mono Yellow - 42 (24 Katakuri, 8 ST7Linlin, 10 ST Yamato)
+Mix Yellow - 4 (LinlinOP)
+SCORES OP3 OCG
+Red - 153 decks = 49.3%
+Green - 33 decks = 10.7%
+Blue - 30.5 decks = 9.9%
+Purple - 11.5 decks = 3.7%
+Black - 38 decks = 12.2%
+Yellow - 44 decks = 14.2%
+
+OP04 TCG - 297 Decks total
+Mono Red - 87 (26 Zoro, 53 WB, 7 Ace, 1 STLufa)
+Mix Red - 58 (46 Law, 2 LuffyOP1, 2 Vivi, 6 LawST10, 2 LufaST10)
+Mono Green - 14 (1 Kinemon, 3 Kuro, 10 Kid)
+Mix Green - 82 (46 Law, 2 LuffyOP1, 3 Arlong, 30 DoffyOP4, 1 Issho, )
+Mono Blue - 17 (2 Doffy, 1 Ivankov, 6 Nami, 8 CrocST)
+Mix Blue - 27 (1 KaidoOP1, 13 Queen, 2 Vivi, 11 Rebeka)
+Mono Purple - 4 (1 King, 1 Magulon, 2 Kaido)
+Mix Purple - 45 (1 KaidoOP1, 1 Zefir, 5 CrocOP4, 30 DoffyOP4, 6 LawST10, 2 LufaST10)
+Mono Black - 3 (1 Smoker, 2 Gucci)
+Mix Black - 14 (11 Rebeka, 1 Issho, 1 Zefir, 1 LinlinOP)
+Mono Yellow - 48 (47 Katakuri, 1 ST7Linlin)
+Mix Yellow - 22 (3 Arlong, 5 CrocOP4, 13 Queen, 1 LinlinOP)
+SCORES OP4 TCG
+Red - 116 decks = 39.0%
+Green - 55 decks = 18.5%
+Blue - 30.5 decks = 10.3%
+Purple - 26.5 decks = 8.9%
+Black - 10 decks = 3.4%
+Yellow - 44 decks = 19.9%
+
+OP04 OCG - 340 Decks total
+Mono Red - 105 (37 Zoro, 51 WB, 14 Ace, 3 ST1Lufa)
+Mix Red - 39 (31 Law, 1 Garp, 2 Vivi, 1 LawST10, 4 LufaST10)
+Mono Green - 4 (1 Oden, 2 Kuro, 1 Kid)
+Mix Green - 80 (31 Law, 2 Sanji, 1 Arlong, 43 DoffyOP4, 3 Issho)
+Mono Blue - 29 (5 Doffy, 3 Ivankov, 13 Nami, 8 CrocST)
+Mix Blue - 36 (1 KaidoOP1, 1 BlurpleCroc, 2 Sanji, 12 Queen, 18 Rebeka, 2 Vivi)
+Mono Purple - 7 (2 King, 3 Magulon, 2 Kaido)
+Mix Purple - 58 (1 KaidoOP1, 1 BlurpleCroc, 5 Zefir, 3 CrocOP4, 43 DoffyOP4, 1 LawST10, 4 LufaST10 )
+Mono Black - 10 (3 Smoker, 6 Gucci, 1 LufaST8)
+Mix Black - 27 (1 Garp, 5 Zefir, 3 Issho, 18 Rebeka)
+Mono Yellow - 57 (11 ST7Linlin, 43 Katakuri)
+Mix Yellow 16 (1 Arlong, 3 CrocOP4, 12 Queen)
+
+SCORES OP4 OCG
+Red - 124.5 decks = 36.6%
+Green - 44 decks = 12.9%
+Blue - 47 decks = 13.8%
+Purple - 36 decks = 10.7%
+Black - 23.5 decks = 6.9%
+Yellow - 65 decks = 19.1%
+
+OP05 OCG - 359 Decks total
+Mono Red - 31 (19 Zoro, 6 WB, 3 Ace, 2 LufaST1)
+Mix Red - 68 (22 Law, 1 Vivi, 12 Betty, 5 Sabo, 11 LawST10, 17 LufaST10)
+Mono Green - 18 (1 Oden, 1 Kid, 16 Uta)
+Mix Green - 28 (22 Law, 1 Arlong, 3 DoffyOP4, 2 Corazon)
+Mono Blue - 6 (3 Doffy, 2 Nami, 1 Promolufa)
+Mix Blue - 76 (2 KaidoOP1, 6 Queen, 1 Vivi, 2 Corazon, 65 Sakazuki)
+Mono Purple - 80 (1 Magulon, 1 Rizz, 77 LufaOP5, 1 Kaido)
+Mix Purple - 34 (2 Kaido, 1 CrocOP4, 3 DoffyOP4, 11 LawST10, 17 LufaST10)
+Mono Black - 1 (Smoker)
+Mix Black - 73 (3 LinlinOP, 5 Sabo, 65 Sakazuki)
+Mono Yellow - 72 (27 Katakuri, 45 Enel)
+Mix Yellow - 23 (1 Arlong, 3 LinlinOP, 1 CrocOP4, 6 Queen, 12 Betty)
+
+SCORES OP05 OCG
+Red - 65 decks = 18.1%
+Green - 32 decks = 8.9%
+Blue - 44 decks = 12.3%
+Purple - 97 decks = 27.0%
+Black - 37.5 decks = 10.4%
+Yellow - 65 decks = 23.3%

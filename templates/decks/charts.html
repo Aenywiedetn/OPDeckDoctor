@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container text-center">
+  <h1> Statistics </h1>
+  <hr></hr>
+  
+  <div class="row text-center">
+    
+    <ul>
+      <li> Double color leaders give half point to each color (e.g LawOP01 gives 0.5 points to Red and 0.5 to Green for each decklist) </li> 
+      <li> I plan to add "Leader view" to the charts, to sort by Leader domination, not only general color</li>
+      <li> Data is correct and complete as far as OPTopDecks go. I will add more numbers thank percents soon, for now it compiles every decklist available at this site</li>
+      
+    </ul>
+  </div>
+</div>    
+<div class="row">
+  <div class="col-lg-6 my-3">
+   
+  </div>
+
+  <div class="col-lg-6 my-3">
+    <h2 class="chart-heading">OP05 OCG</h2>
+    <div class="programming-stats">
+      <div class="chart-container">
+        <canvas class="my-chart"></canvas>
+      </div>
+  
+      <div class="details">
+        <ul></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 my-3">
+    <h2 class="chart-heading">OP04 TCG</h2>
+    <div class="programming-stats">
+      <div class="chart-container">
+        <canvas class="my-chart"></canvas>
+       </div>
+
+        <div class="details">
+          <ul></ul>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 my-3">
+    <h2 class="chart-heading">OP04 OCG</h2>
+    <div class="programming-stats">
+      <div class="chart-container">
+        <canvas class="my-chart"></canvas>
+      </div>
+  
+      <div class="details">
+        <ul></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 my-3">
+    <h2 class="chart-heading">OP03 TCG</h2>
+    <div class="programming-stats">
+      <div class="chart-container">
+        <canvas class="my-chart"></canvas>
+       </div>
+
+        <div class="details">
+          <ul></ul>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 my-3">
+    <h2 class="chart-heading">OP03 OCG</h2>
+    <div class="programming-stats">
+      <div class="chart-container">
+        <canvas class="my-chart"></canvas>
+      </div>
+  
+      <div class="details">
+        <ul></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6 my-3">
+    <h2 class="chart-heading">OP02 TCG</h2>
+    <div class="programming-stats">
+      <div class="chart-container">
+        <canvas class="my-chart"></canvas>
+       </div>
+
+        <div class="details">
+          <ul></ul>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 my-3">
+    <h2 class="chart-heading">OP02 OCG</h2>
+    <div class="programming-stats">
+      <div class="chart-container">
+        <canvas class="my-chart"></canvas>
+      </div>
+  
+      <div class="details">
+        <ul></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 my-3">
+    <h2 class="chart-heading">OP01 TCG</h2>
+    <div class="programming-stats">
+      <div class="chart-container">
+        <canvas class="my-chart"></canvas>
+       </div>
+
+        <div class="details">
+          <ul></ul>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 my-3">
+    <h2 class="chart-heading">OP01 OCG</h2>
+    <div class="programming-stats">
+      <div class="chart-container">
+        <canvas class="my-chart"></canvas>
+      </div>
+  
+      <div class="details">
+        <ul></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="{% static 'js/charts.js' %}"></script>
+  
+{% endblock content %}

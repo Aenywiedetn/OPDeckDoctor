@@ -8,4 +8,5 @@ urlpatterns = [
     path('update_short_note/<str:card_id>/', views.update_short_note, name="update_short_note"),
     path('load_user_inputs/', views.load_user_inputs, name='load_user_inputs')
     
+    
 ]

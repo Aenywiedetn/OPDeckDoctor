@@ -87,6 +87,20 @@
           <h5> Quick-access </h5>
         {% endif %} 
         <hr/>
+        <h5>Links:</h5>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="https://drive.google.com/drive/folders/1Jo6PYekFJux3-hG1drOyV-q-Hu5i7swz?usp=sharing" target="_blank">
+              OPTCGSim
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://onepiecetopdecks.com/" target="_blank">
+              OPTopdecks
+            </a>
+          </li>
+        </ul>
+        <hr/>
         <h5>Profile:</h5>
         <ul class="nav flex-column mb-2">
           {% if user_username %}
@@ -98,9 +112,7 @@
           {% endif %}
           <li class="nav-item">
             {% if user_username %}
-            <a class="nav-link" href="#">
-              Change password (in development)
-            </a>
+  
             {% else %}
             <a class="nav-link" href="{% url 'register'%}">
               Register
@@ -118,6 +130,7 @@
               {% endif %}
           </li>
         </ul>
+        
       </div>
     </nav>
   </div>

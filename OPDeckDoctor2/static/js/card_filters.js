@@ -56,17 +56,16 @@ $(document).ready(function () {
   // Checkbox change event
   $("input[type='checkbox'], #cardSearch").on("change input", applyFilters);
 
-  const cardElements = document.querySelectorAll('.for_zoom');
+  const cards = document.querySelectorAll('.card');
 
-  cardElements.forEach(cardElement => {
-    cardElement.addEventListener('click', function() {
-      if (cardElement.classList.contains('for_zoom')) {
-        cardElement.classList.remove('for_zoom');
-      } else {
-        cardElement.classList.add('for_zoom');
-      }
+    cards.forEach(function(card) {
+      const toggleBtn = card.querySelector('.card-header');
+      const listGroup = card.querySelector('.list-group');
+    
+      toggleBtn.addEventListener('click', function() {
+        listGroup.classList.toggle('visible');
+      });
     });
-  });
 
 });
 

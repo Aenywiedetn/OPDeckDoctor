@@ -2,13 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{% static 'img/favicon.ico'%}" sizes="32x32" type="image/ico">
 
     <title> One Piece DeckDoctor</title>
     
     <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+      /* Example of making the sidebar responsive */
+      @media (max-width: 768px) {
+          /* Adjust the sidebar styles for smaller screens */
+          .sidebar {
+              display: none; /* Hide the sidebar on smaller screens */
+          }
+          .main {
+              width: 100%; /* Make the main content take up the full width */
+          }
+      }
+  </style>
     
   </head>
   

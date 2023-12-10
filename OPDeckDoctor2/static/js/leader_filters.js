@@ -40,6 +40,34 @@ $(document).ready(function () {
     // Trigger a change event on the checkboxes to apply filters
     $('.filter-checkbox').change();
 });
+// List visibility toggling on click
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(function(card) {
+  const toggleBtn = card.querySelector('.card-header');
+  const listGroup = card.querySelector('.list-group');
+
+  toggleBtn.addEventListener('click', function(event) {
+    event.stopPropagation(); 
+    
+    document.querySelectorAll('.list-group.visible').forEach(function(group) {
+      if (group !== listGroup) {
+        group.classList.remove('visible');
+      }
+    });
+    listGroup.classList.toggle('visible');
+  });
+});
+
+document.addEventListener('click', function(event) {
+  cards.forEach(function(card) {
+    const listGroup = card.querySelector('.list-group');
+
+    if (!card.contains(event.target)) {
+      listGroup.classList.remove('visible');
+    }
+  });
+});
 
 });
 

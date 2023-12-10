@@ -46,7 +46,7 @@
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
               {% if user_preferences.leader1 %}
-                <a class="nav-link" href="{% url 'decklist' leader=user_preferences.leader1|slice:":8" deck_set='OP04' %}">
+                <a class="nav-link" href="{% url 'decklist' leader=user_preferences.leader1|slice:":8" deck_set='OP05' %}">
                 {{ user_preferences.leader1 }}
                 </a>
               {% else %}
@@ -57,7 +57,7 @@
               </li>
               <li class="nav-item">
                 {% if user_preferences.leader2 %}
-                  <a class="nav-link" href="{% url 'decklist' leader=user_preferences.leader2|slice:":8" deck_set='OP04' %}">
+                  <a class="nav-link" href="{% url 'decklist' leader=user_preferences.leader2|slice:":8" deck_set='OP05' %}">
                   {{ user_preferences.leader2 }}
                   </a>
                 {% else %}
@@ -68,7 +68,7 @@
               </li>
               <li class="nav-item">
                 {% if user_preferences.leader3 %}
-                  <a class="nav-link" href="{% url 'decklist' leader=user_preferences.leader3|slice:":8" deck_set='OP04' %}">
+                  <a class="nav-link" href="{% url 'decklist' leader=user_preferences.leader3|slice:":8" deck_set='OP05' %}">
                   {{ user_preferences.leader3 }}
                   </a>
                 {% else %}

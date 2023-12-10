@@ -12,6 +12,8 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from .utils import token_generator
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
 class EmailValidationView(View):
   def post(self, request):
@@ -74,7 +76,7 @@ class RegistrationView(View):
         activate_url = 'http://'+domain+link
        
 
-        email_subject = 'Activate your accont on OPDeckDoctor'
+        email_subject = 'Activate your account on OPDeckDoctor'
         email_body = 'Hi '+ user.username + '! Please verify Your account via this link: \n' + activate_url
         email = EmailMessage(
           email_subject,
@@ -132,4 +134,84 @@ class VerificationView(View):
       return redirect('login')
   
 
+class RequestPasswordResetEmail(View):
+  def get(self, request):
+    return render(request, 'authentication/reset-password.html')
+    
+  def post(self, request):
+
+    email=request.POST['email']
+    context={
+      'values':request.POST
+    }
+
+    if not validate_email(email):
+      messages.error(request, 'Email invalid')
+      return render(request, 'authentication/reset-password.html', context)
+
+    user=User.objects.filter(email=email).first()
+
+    if user:
+      token_generator = PasswordResetTokenGenerator()
+      email_contents = {
+        'user': user,
+        'domain': get_current_site(request).domain,
+        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        'token': token_generator.make_token(user),
+        }
+      domain = get_current_site(request).domain
+      link = reverse('reset-user-password', kwargs={'uidb64': email_contents['uid'], 'token':email_contents['token']})
+      reset_url = 'http://'+domain+link
+
+      email_subject = 'Reset Your password on OPDeckDoctor'
+      email_body = 'Please use this link to reset Your password: \n' + reset_url
+      email = EmailMessage(
+        email_subject,
+        email_body,
+        "validator@opdeckdoctor.com",
+        [email],
+          )
+      email.send()     
+    messages.success(request, 'Email with password reset link sent')
+    return render(request, 'authentication/reset-password.html')
+    
   
+class CompletePasswordReset(View):
+  def get(self, request, uidb64, token):
+    context = {
+      'uidb64': uidb64,
+      'token': token,
+    }
+    return render(request, 'authentication/set-new-password.html', context)
+  
+  def post(self, request, uidb64, token):
+    context = {
+      'uidb64': uidb64,
+      'token': token,
+    }
+
+    password = request.POST['password']
+    password2 = request.POST['password2']
+
+    if password != password2:
+      messages.error(request, 'Passwords do not match')
+      return render(request, 'authentication/set-new-password.html', context)
+    if len(password) < 6:
+      messages.error(request, 'Password needs to be at least 6 characters')
+      return render(request, 'authentication/set-new-password.html', context)
+    
+    try:
+      user_id = force_str(urlsafe_base64_decode(uidb64))
+      user = get_object_or_404(User, pk=user_id)
+      user.set_password(password)
+      user.save(update_fields=["password"])
+
+      messages.success(request, 'Password changed!')
+      return redirect('login')
+    
+    except Exception as identifier:
+      messages.info(request, 'Something is no yes')
+      return render(request, 'authentication/set-new-password.html', context)
+    
+    
+   

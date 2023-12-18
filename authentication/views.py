@@ -177,41 +177,46 @@ class RequestPasswordResetEmail(View):
     
   
 class CompletePasswordReset(View):
-  def get(self, request, uidb64, token):
-    context = {
-      'uidb64': uidb64,
-      'token': token,
-    }
-    return render(request, 'authentication/set-new-password.html', context)
-  
-  def post(self, request, uidb64, token):
-    context = {
-      'uidb64': uidb64,
-      'token': token,
-    }
+    def get(self, request, uidb64, token):
+        context = {
+            'uidb64': uidb64,
+            'token': token,
+        }
+        return render(request, 'authentication/set-new-password.html', context)
+      
+    def post(self, request, uidb64, token):
+        context = {
+            'uidb64': uidb64,
+            'token': token,
+        }
 
-    password = request.POST['password']
-    password2 = request.POST['password2']
+        password = request.POST.get('password')
+        password2 = request.POST.get('confirmPassword')
 
-    if password != password2:
-      messages.error(request, 'Passwords do not match')
-      return render(request, 'authentication/set-new-password.html', context)
-    if len(password) < 6:
-      messages.error(request, 'Password needs to be at least 6 characters')
-      return render(request, 'authentication/set-new-password.html', context)
-    
-    try:
-      user_id = force_str(urlsafe_base64_decode(uidb64))
-      user = get_object_or_404(User, pk=user_id)
-      user.set_password(password)
-      user.save(update_fields=["password"])
+        if not (password and password2):
+            messages.error(request, 'Passwords not provided')
+            return render(request, 'authentication/set-new-password.html', context)
 
-      messages.success(request, 'Password changed!')
-      return redirect('login')
-    
-    except Exception as identifier:
-      messages.info(request, 'Something is no yes')
-      return render(request, 'authentication/set-new-password.html', context)
+        if password != password2:
+            messages.error(request, 'Passwords do not match')
+            return render(request, 'authentication/set-new-password.html', context)
+        
+        if len(password) < 6:
+            messages.error(request, 'Password needs to be at least 6 characters')
+            return render(request, 'authentication/set-new-password.html', context)
+        
+        try:
+            user_id = force_str(urlsafe_base64_decode(uidb64))
+            user = get_object_or_404(User, pk=user_id)
+            user.set_password(password)
+            user.save(update_fields=["password"])
+
+            messages.success(request, 'Password changed!')
+            return redirect('login')
+        
+        except Exception as e:
+            messages.error(request, 'Something went wrong: {}'.format(e))
+            return render(request, 'authentication/set-new-password.html', context)
     
     
    

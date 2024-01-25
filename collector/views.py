@@ -7,7 +7,25 @@ from django.contrib import messages
 from .tests import card_order_check
 
 
-# Create your views here.
+@login_required(login_url='/authentication/login')
+def extra_copies(request):
+    # Get cards with more than 4 copies for the logged-in user
+    cards_with_extra_copies = Card.objects.filter(userinput__user=request.user, userinput__number_owned__gt=4)
+
+    # Create a list to store tuples of (card object, extra copies)
+    extra_copies_list = []
+
+    for card in cards_with_extra_copies:
+        user_input = UserInput.objects.get(user=request.user, card=card)
+        extra_copies = user_input.number_owned - 4
+
+        if extra_copies > 0:
+            extra_copies_list.append((card, extra_copies))
+
+    context = {'extra_copies_list': extra_copies_list}
+    return render(request, 'collector/extra_copies.html', context)
+
+
 def index(request):
   cards = Card.objects.all()
   context = { 'cards' : cards}

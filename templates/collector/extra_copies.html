@@ -5,10 +5,11 @@
 {% block content %}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script> var csrfToken = "{{ csrf_token|escapejs }}"; </script>
-<script type="text/javascript" src="{% static 'js/collection_filters.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/extra_copies.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
-<h3 class="mb-4 border-bottom pb-1">Your collection</h3> 
+
+<h3 class="mb-4 border-bottom pb-1">Cards for sale (more than 4 copies in collection) </h3>
 <div class="row menu">
   <div class="col-lg-3">
   <input class="form-control mb-4 text-center" id="cardSearch" type="text" placeholder="Search by name" >
@@ -150,25 +151,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-3 filter-block" id="collection">
-    <div class="card mb-4">
-      <h6 class="card-header">Collection</h6>
-      <div class="list-group list-group-flush">
-        <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="collection" value="owned" type="checkbox" style="float: left"/>&nbsp; At least a playset
-        </label>
-        <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="collection" value="missing" type="checkbox" style="float: left"/>&nbsp; Missing copies
-        </label>
-        <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="collection" value="more" type="checkbox" style="float: left"/>&nbsp; More than a playset
-        </label>
-        <label class="list-group-item">
-          <input class="filter-checkbox mt-1" data-filter="note" value="noteadded" type="checkbox" style="float: left"/>&nbsp; Note added
-        </label>
-      </div>
-    </div>
-  </div>
+  
   <div class="col-lg-3 filter-block" id="utility">
     <div class="card mb-4">
       <h6 class="card-header">Utility</h6>
@@ -188,13 +171,29 @@
       </div>
     </div>
   </div>
+  <div class="col-lg-3 filter-block">
+    <div class="card mb-4"> 
+      <h6 class="card-header"> Cards for sale but in txt </h6>
+      <div class="list-group">
+        <label class="list-group-item" id="extra_card_list">
+          {% if extra_copies_list %}
+            {% for card, extra_copies in extra_copies_list %}
+              {{ extra_copies }} x  {{ card.id }} - {{ card.name }}   <br>
+            {% endfor %}
+          {% else %}
+            No extra copies found.
+          {% endif %}
+        </label>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="row menu">
   <div class="col-lg-2 mt-3">
-    <label><input class="collection-hiding-checkbox mt-1" type="checkbox" style="float: left"/> &nbsp;&nbsp;&nbsp;  Hide numbers </label>
+    
   </div>
   <div class="col-lg-2 mt-3">
-    <label><input class="names-hiding-checkbox mt-1" type="checkbox" style="float: left"/><span class="label-text">&nbsp;&nbsp;&nbsp; Show Notes</span> </label>
+    
   </div>
   <div class="col-lg-2">
     
@@ -202,7 +201,6 @@
   <div class="col-lg-2">
   </div>
   <div class="col-lg-2">
-    <a href="{% url 'extra_copies' %}"><button class="btn btn-outline-red mb-3" type="button"> <b>Export sales list</b> </button></a>
   </div>
   <div class="col-lg-2">
       <button class="resetBTN btn btn-outline-secondary mb-3" type="button">Reset filters</button>
@@ -211,19 +209,26 @@
 
 <hr></hr>
 <div class="grid-container" id="filterArea" >
-  {% for card in cards %}
+  {% if extra_copies_list %}
+  {% for card, extra_copies in extra_copies_list %}
   <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-cost="{{ card.cost }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-counter2k="{{ card.counter2k }}" data-blocker="{{ card.blocker }}" data-set="{{ card.set }}" data-rarity="{{card.rarity}}" data-card-id="{{ card.id }}"  >
       <a>
-          <input class="number-owned text-center" name="number_owned" type="number" min="0" max="2137" placeholder="Loading..." data-card-id="{{ card.id }}">
+          {{ extra_copies }}
           <img src="{% static 'img/placeholder.png' %}" data-src="{% static 'img/' %}{{card.id}}.png" height="134.4" width="96.18" class="for_zoom" loading="lazy" alt="{{ card.name }}">
           <h6 class="cardName"><b>{{ card.name }}</b></h6>
-          <input class="short_note text-center" name="short_note" type="text" placeholder="{{ card.name }}"
-          data-card-id="{{ card.id }}"
-          value="{% for user_input in user_inputs %}{% if user_input.card.id == card.id %}{{ user_input.short_note|default_if_none:'' }}{% endif %}{% endfor %}">
+          
       </a>
   </div>
 {% endfor %}
+      
 
 </div>
 
+
+      
+
+  {% else %}
+    <p>No extra copies found.</p>
+  {% endif %}
+ 
 {% endblock content %}

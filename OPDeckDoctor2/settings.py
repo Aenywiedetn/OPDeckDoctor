@@ -140,11 +140,11 @@ MESSAGE_TAGS = {
 }
 
 EMAIL_HOST = 'smtp.elasticemail.com'
-EMAIL_HOST_USER = 'validator@opdeckdoctor.com'
+EMAIL_HOST_USER = 'opdeckdoctorvalidator@gmail.com'
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'validator@opdeckdoctor.com'
+DEFAULT_FROM_EMAIL = 'opdeckdoctorvalidator@gmail.com'
 EMAIL_PORT = 2525
-EMAIL_HOST_PASSWORD = 'DC94BFE8C3668C107B89C172C88B18A5DBB8'
+EMAIL_HOST_PASSWORD = '7BFE2D779EC2B91A781DD9BC28114BA276CB'
 
 CSRF_TRUSTED_ORIGINS = [
   'https://opdeckdoctor.com', 'https://opdeckdoctor-production.up.railway.app', 'https://opdeckdoctor.up.railway.app'

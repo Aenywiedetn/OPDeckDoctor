@@ -81,7 +81,7 @@ class RegistrationView(View):
         email = EmailMessage(
           email_subject,
           email_body,
-          "validator@opdeckdoctor.com",
+          "opdeckdoctorvalidator@gmail.com",
           [email],
         )
         email.send()
@@ -163,12 +163,12 @@ class RequestPasswordResetEmail(View):
       link = reverse('reset-user-password', kwargs={'uidb64': email_contents['uid'], 'token':email_contents['token']})
       reset_url = 'http://'+domain+link
 
-      email_subject = 'Reset Your password on OPDeckDoctor'
+      email_subject = 'Reset Your password on OPDeckDoctor - ' + user.username
       email_body = 'Please use this link to reset Your password: \n' + reset_url
       email = EmailMessage(
         email_subject,
         email_body,
-        "validator@opdeckdoctor.com",
+        "opdeckdoctorvalidator@gmail.com",
         [email],
           )
       email.send()     

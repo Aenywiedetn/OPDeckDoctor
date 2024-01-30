@@ -139,12 +139,12 @@ MESSAGE_TAGS = {
   messages.ERROR: 'danger'
 }
 
-EMAIL_HOST = 'smtp.privateemail.com'
+EMAIL_HOST = 'smtp.elasticemail.com'
 EMAIL_HOST_USER = 'validator@opdeckdoctor.com'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'validator@opdeckdoctor.com'
-EMAIL_PORT = 587
-EMAIL_HOST_PASSWORD = 'itakjestnagithubieXD123'
+EMAIL_PORT = 2525
+EMAIL_HOST_PASSWORD = 'DC94BFE8C3668C107B89C172C88B18A5DBB8'
 
 CSRF_TRUSTED_ORIGINS = [
   'https://opdeckdoctor.com', 'https://opdeckdoctor-production.up.railway.app', 'https://opdeckdoctor.up.railway.app'

@@ -15,7 +15,7 @@
         </div>
         <div class="col-lg-3 filter-block" id="colors">
           <div class="card mb-4">
-            <h6 class="card-header"> Color </h6>
+            <h6 class="card-header"> <b>Color</b> </h6>
             <div class="list-group">
               <label class="list-group-item">
                 <input class="filter-checkbox mt-1" data-filter="color" value="red" type="checkbox" style="float: left"/> &nbsp; Red
@@ -40,7 +40,7 @@
         </div>
         <div class="col-lg-3 filter-block" id="sets">
           <div class="card mb-4">
-            <h6 class="card-header">Set</h6>
+            <h6 class="card-header"><b>Set</b></h6>
             <div class="list-group list-group-flush">
               <label class="list-group-item">
               <input class="filter-checkbox mt-1" data-filter="set" value="OP01" type="checkbox" style="float: left" /> &nbsp; OP01
@@ -78,8 +78,9 @@
     <div class="grid-item text-center mx-1" data-color1="{{leader.color1}}" data-color2="{{leader.color2}}" data-set="{{ leader.set }}"  >
       <a href="{% url 'decklist' leader=leader.id deck_set='OP05' %}">
         <img src="{% static 'img/leader_placeholder.png' %}" data-src="{% static 'img/' %}{{ leader.id }}.png" height="192" width="137.4" loading="lazy" class="link-pic"/>
-      <h6 class="leaderName"><b>{{leader.name}}</b></h6>
       </a>
+      <h6 class="leaderName"><b>{{leader.name}}</b></h6>
+      
     </div>
   {% endfor %}
   

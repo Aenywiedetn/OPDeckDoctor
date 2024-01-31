@@ -10,9 +10,9 @@
         </div>
         <hr/>
         {% if user_username %}
-          <h5> Logged as {{ user_username }} </h5>
+          <h5><b> Logged as {{ user_username }} </b></h5>
         {% else %}
-          <h5>No account</h5>
+        <h5><b> No account </b></h5>
         {% endif %}
         <ul class="nav flex-column">
           <li class="nav-item">
@@ -42,7 +42,7 @@
         </ul> 
         <hr/>
         {% if user_username %}
-          <h5> Quick-access </h5>
+          <h5><b> Quick-access </b></h5>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
               {% if user_preferences.leader1 %}
@@ -82,12 +82,22 @@
           <a class="nav-link" href="{% url 'preferences'%}">
             <h5><b> Login to setup: </b></h5>
           </a>
-          <h5> Card Collector </h5>
-          <h6>&</h6>
-          <h5> Quick-access </h5>
+          <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link"  href="{% url 'login' %}">
+              Card Collector
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="{% url 'login' %}">
+              Quick-access
+            </a>
+        </li>
+      </ul>
+          
         {% endif %} 
         <hr/>
-        <h5>Links:</h5>
+        <h5><b>Links:</b></h5>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
             <a class="nav-link" href="https://drive.google.com/drive/folders/1Jo6PYekFJux3-hG1drOyV-q-Hu5i7swz?usp=sharing" target="_blank">
@@ -101,7 +111,7 @@
           </li>
         </ul>
         <hr/>
-        <h5>Profile:</h5>
+        <h5><b>Profile:</b></h5>
         <ul class="nav flex-column mb-2">
           {% if user_username %}
           <li class="nav-item">

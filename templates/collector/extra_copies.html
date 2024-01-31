@@ -9,14 +9,14 @@
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
 
-<h3 class="mb-4 border-bottom pb-1">Cards for sale (more than 4 copies in collection) </h3>
+<h3 class="mb-4 border-bottom pb-1"><b>Cards for sale (more than 4 copies in collection) </b></h3>
 <div class="row menu">
   <div class="col-lg-3">
   <input class="form-control mb-4 text-center" id="cardSearch" type="text" placeholder="Search by name" >
   </div>
   <div class="col-lg-3 filter-block" id="colors">
     <div class="card mb-4"> 
-      <h6 class="card-header">Color</h6>
+      <h6 class="card-header"><b>Color</b></h6>
       <div class="list-group">
         <label class="list-group-item">
           <input class="filter-checkbox mt-1" data-filter="color" value="red" type="checkbox" style="float: left"/> &nbsp; Red
@@ -41,7 +41,7 @@
   </div>
   <div class="col-lg-3 filter-block" id="types">
     <div class="card mb-4">
-      <h6 class="card-header">Type</h6>
+      <h6 class="card-header"><b>Type</b></h6>
       <div class="list-group list-group-flush">
         <label class="list-group-item">
       <input class="filter-checkbox mt-1" data-filter="type" value="CHARACTER" type="checkbox" style="float: left"/>&nbsp; Character
@@ -57,7 +57,7 @@
   </div>
   <div class="col-lg-3 filter-block" id="cost">
     <div class="card mb-4">
-      <h6 class="card-header">Cost</h6>
+      <h6 class="card-header"><b>Cost</b></h6>
       <div class="list-group list-group-flush">
         <label class="list-group-item">
           <input class="filter-checkbox mt-1" data-filter="cost" value="0" type="checkbox" style="float: left"/>&nbsp; 0
@@ -100,7 +100,7 @@
   
   <div class="col-lg-3 filter-block" id="sets">
     <div class="card mb-4">
-      <h6 class="card-header">Set</h6>
+      <h6 class="card-header"><b>Set</b></h6>
       <div class="list-group list-group-flush">
         <label class="list-group-item">
         <input class="filter-checkbox mt-1" data-filter="set" value="OP01" type="checkbox" style="float: left" /> &nbsp; OP01
@@ -128,7 +128,7 @@
   </div>
   <div class="col-lg-3 filter-block" id="rarities">
     <div class="card mb-4">
-      <h6 class="card-header">Rarity</h6>
+      <h6 class="card-header"><b>Rarity</b></h6>
       <div class="list-group list-group-flush">
         <label class="list-group-item">
       <input class="filter-checkbox mt-1" data-filter="rarity" value="C" type="checkbox" style="float: left"/>&nbsp; Common
@@ -154,7 +154,7 @@
   
   <div class="col-lg-3 filter-block" id="utility">
     <div class="card mb-4">
-      <h6 class="card-header">Utility</h6>
+      <h6 class="card-header"><b>Utility</b></h6>
       <div class="list-group list-group-flush">
         <label class="list-group-item">
           <input class="filter-checkbox mt-1" data-filter="blocker" value="True" type="checkbox" style="float: left"/>&nbsp; Blocker
@@ -213,9 +213,10 @@
   {% for card, extra_copies in extra_copies_list %}
   <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-cost="{{ card.cost }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-counter2k="{{ card.counter2k }}" data-blocker="{{ card.blocker }}" data-set="{{ card.set }}" data-rarity="{{card.rarity}}" data-card-id="{{ card.id }}"  >
       <a>
-          {{ extra_copies }}
+          
           <img src="{% static 'img/placeholder.png' %}" data-src="{% static 'img/' %}{{card.id}}.png" height="134.4" width="96.18" class="for_zoom" loading="lazy" alt="{{ card.name }}">
-          <h6 class="cardName"><b>{{ card.name }}</b></h6>
+          
+          <h6 class="cardName">{{ extra_copies }} x {{ card.name }}</h6>
           
       </a>
   </div>

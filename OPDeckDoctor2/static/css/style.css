@@ -22,46 +22,11 @@
   transform: scale(1.2);
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 0px; 
-}
-
-.grid-container-leader {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 0px;
-}
-.grid-item {
-  text-align: center; 
-  
-}
-
 .link-pic:hover
 {
   transform: scale(1.1);
   transition: transform 0.3s; 
 }
-
-.for_zoom {
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-
-.for_zoom:hover {
-  transform: scale(1.1);
-}
-
-.zoomed {
-  transform: scale(3.1);
-}
-
-.zoomed:hover {
-  transform: scale(3.1); 
-}
-
-
 
 .leaderName {
   display: block;
@@ -86,7 +51,6 @@
 
 }
 
-/* Basic styling */
 
 
 .sidebar {
@@ -205,3 +169,97 @@
   color: #000000;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0px; 
+  
+}
+
+.grid-container-leader {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0px;
+}
+
+.grid-item {
+  cursor: pointer;
+  text-align: center; 
+  position: relative;
+}
+
+.for_zoom {
+  transition: transform 0.3s;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.for_zoom:hover {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.for_zoom_with_tooltip {
+  transition: transform 0.3s;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.for_zoom_with_tooltip:hover {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.zoomed {
+  transform: scale(3.1);
+  z-index: 3;
+}
+
+.zoomed:hover {
+  transform: scale(3.1);
+  z-index: 3;
+}
+
+.zoomed_with_tooltip-container {
+  position: relative;
+}
+.zoomed_with_tooltip {
+  transform: scale(3.1);
+  position: absolute;
+  top: 0;
+  left: 5;
+  z-index: 3;
+}
+
+.zoomed_with_tooltip:hover {
+  transform: scale(3.1);
+  z-index: 3;
+}
+.tooltip-content,
+.tooltip-zoomed {
+  display: none;
+  transition: left 0.3s;
+  position: absolute;
+  top: 5%;
+  left: 100%;
+  background-color: #bbbbbbc3;
+  border-radius: 10px;
+  padding: 10px;
+  pointer-events: none;
+  z-index: 4;
+  white-space: nowrap;
+  width: max-content;
+  
+}
+
+.tooltip-zoomed {
+
+  left: 200%;
+
+}
+
+.grid-item:hover .tooltip-content {
+  display: block;
+}

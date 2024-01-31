@@ -53,11 +53,20 @@
   <hr></hr>
   <h1> Average number of cards included from {{ deck.deck_counter }} decklists </h1>
 
-  <div class="grid-container " >
+  <div class="grid-container">
     {% for zestaw in deck.sorted_avg %}
-      <div class="grid-item">
-        <img src="{% static 'img/placeholder.png' %}" data-src="{% static 'img/' %}{{zestaw.1}}.png" height="128" width="91.6" class="for_zoom" loading="lazy" />
+      <div class="grid-item" data-tooltip="{{ zestaw.0 }}">
+        <img src="{% static 'img/placeholder.png' %}" data-src="{% static 'img/' %}{{zestaw.1}}.png" height="128" width="91.6" class="for_zoom_with_tooltip" loading="lazy" />
         <h6>{{ zestaw.0 }}</h6>
+        <div class="tooltip-content">
+          <!-- Add content you want to display on hover here -->
+          <!-- For example, you can show additional information about the card -->
+          Decklists using this card: {{ zestaw.2 }} / {{ deck.deck_counter }}<br>
+          Minimum inclusion: {{ zestaw.3 }}<br>
+          Maximum inclusion: {{ zestaw.4 }}<br>
+          Average inclusion: {{ zestaw.5 }}
+          
+        </div>
       </div>
     {% endfor %}
   </div>

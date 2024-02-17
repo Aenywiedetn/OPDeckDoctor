@@ -5,18 +5,28 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserNumberForm, UserNoteForm
 from django.contrib import messages
 from .tests import card_order_check
+from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
 
 
-@login_required(login_url='/authentication/login')
-def extra_copies(request):
-    # Get cards with more than 4 copies for the logged-in user
-    cards_with_extra_copies = Card.objects.filter(userinput__user=request.user, userinput__number_owned__gt=4)
+
+
+def extra_copies(request, user_id=None):
+    User = get_user_model()
+
+    if user_id is not None:
+        user = get_object_or_404(User, id=user_id)
+    else:
+        user = request.user
+
+    # Get cards with more than 4 copies for the specified user
+    cards_with_extra_copies = Card.objects.filter(userinput__user=user, userinput__number_owned__gt=4)
 
     # Create a list to store tuples of (card object, extra copies)
     extra_copies_list = []
 
     for card in cards_with_extra_copies:
-        user_input = UserInput.objects.get(user=request.user, card=card)
+        user_input = UserInput.objects.get(user=user, card=card)
         extra_copies = user_input.number_owned - 4
 
         if extra_copies > 0:

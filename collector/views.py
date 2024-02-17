@@ -16,8 +16,10 @@ def extra_copies(request, user_id=None):
 
     if user_id is not None:
         user = get_object_or_404(User, id=user_id)
+        user_username = user.username
     else:
         user = request.user
+        user_username = user.username
 
     # Get cards with more than 4 copies for the specified user
     cards_with_extra_copies = Card.objects.filter(userinput__user=user, userinput__number_owned__gt=4)
@@ -32,7 +34,7 @@ def extra_copies(request, user_id=None):
         if extra_copies > 0:
             extra_copies_list.append((card, extra_copies))
 
-    context = {'extra_copies_list': extra_copies_list}
+    context = {'extra_copies_list': extra_copies_list, 'user_username': user_username}
     return render(request, 'collector/extra_copies.html', context)
 
 

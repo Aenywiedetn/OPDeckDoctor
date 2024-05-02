@@ -40,7 +40,7 @@ def extra_copies(request, user_id=None):
 
 def index(request):
   cards = Card.objects.all()
-  context = { 'cards' : cards}
+  context = { 'cards' : cards }
   return render(request, 'collector/index.html', context)
 
 

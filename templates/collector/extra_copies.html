@@ -181,7 +181,7 @@
         <label class="list-group-item" id="extra_card_list">
           {% if extra_copies_list %}
             {% for card, extra_copies in extra_copies_list %}
-              {{ extra_copies }} x  {{ card.id }} - {{ card.name }}   <br>
+              {{ extra_copies }} x  {{ card.idx }} - {{ card.name }}   <br>
             {% endfor %}
           {% else %}
             No extra copies found.
@@ -217,7 +217,7 @@
   <div class="grid-item" data-color="{{ card.color }}" data-type="{{ card.type }}" data-cost="{{ card.cost }}" data-counter="{{ card.counter }}" data-trigger="{{ card.trigger }}" data-counter2k="{{ card.counter2k }}" data-blocker="{{ card.blocker }}" data-set="{{ card.set }}" data-rarity="{{card.rarity}}" data-card-id="{{ card.id }}"  >
       <a>
           
-          <img src="{% static 'img/placeholder.png' %}" data-src="{% static 'img/' %}{{card.id}}.png" height="134.4" width="96.18" class="for_zoom" loading="lazy" alt="{{ card.name }}">
+          <img src="{% static 'img/placeholder.png' %}" data-src="{% static 'img/' %}{{card.idx}}.png" height="134.4" width="96.18" class="for_zoom" loading="lazy" alt="{{ card.name }}">
           
           <h6 class="cardName">{{ extra_copies }} x {{ card.name }}</h6>
           

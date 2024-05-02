@@ -27,9 +27,10 @@ def decklist(request, leader, deck_set):
     op04 = Deck.objects.filter(leader=leader, set='OP04').first()
     op05 = Deck.objects.filter(leader=leader, set='OP05').first()
     op06 = Deck.objects.filter(leader=leader, set='OP06').first()
+    eb01 = Deck.objects.filter(leader=leader, set='EB01').first()
     deck = deckView(leader, deck_set)
     currentFormat = deck_set
-    context = {'deck': deck , 'leader': leader, 'op01' : op01, 'op02' : op02, 'op03' : op03, 'op04' : op04, 'op05' : op05, 'op06' : op06,'currentFormat' : currentFormat }
+    context = {'deck': deck , 'leader': leader, 'op01' : op01, 'op02' : op02, 'op03' : op03, 'op04' : op04, 'op05' : op05, 'op06' : op06, 'eb01': eb01, 'currentFormat' : currentFormat }
     return render(request, 'decks/leader_view_base.html', context)
 
 

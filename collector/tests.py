@@ -12,18 +12,18 @@ def fill_images_base64():
     img_folder = 'OPDeckDoctor2/static/img/'
 
     for card in cards:
-        image_path = os.path.join(img_folder, f"{card.id}.png")
+        image_path = os.path.join(img_folder, f"{card.idx}.png")
 
         if os.path.exists(image_path):
             base64_image = convert_image_to_base64(image_path)
             card.image = base64_image
             card.save()
-            print(f"Base64 image saved for Card {card.id}")
+            print(f"Base64 image saved for Card {card.idx}")
         else:
-            print(f"Image not found for Card {card.id}")
+            print(f"Image not found for Card {card.idx}")
 
 def card_order_check():
     cards = Card.objects.all()
 
     for card in cards:
-        print(f"Order is: {card.id}")
+        print(f"Order is: {card.idx}")

@@ -73,7 +73,7 @@ def update_number_owned(request, card_id):
                 if not created:
                     user_input.number_owned = number_owned
                     user_input.save()
-                return JsonResponse({'success': True, 'card_id': card.id, 'new_number_owned': user_input.number_owned})
+                return JsonResponse({'success': True, 'card_id': card.idx, 'new_number_owned': user_input.number_owned})
             else:
                 return JsonResponse({'success': False})
         else:
@@ -99,7 +99,7 @@ def update_short_note(request, card_id):
                 if not created:
                     user_input.short_note = short_note
                     user_input.save()
-                return JsonResponse({'success': True, 'card_id': card.id, 'new_short_note': user_input.short_note})
+                return JsonResponse({'success': True, 'card_id': card.idx, 'new_short_note': user_input.short_note})
             else:
                 return JsonResponse({'success': False})
         else:

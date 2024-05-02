@@ -24,7 +24,8 @@ class Deck(models.Model):
   decklist = ArrayField(models.CharField(), size=50, default=list)
 
 class Leader(models.Model):
-  id = models.CharField(default='', primary_key=True)
+  lp = models.CharField(default='', primary_key=True)
+  id = models.CharField(default='')
   name = models.CharField(default='')
   set = models.CharField(default='')
   life = models.IntegerField(default='')

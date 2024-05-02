@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Card(models.Model):
-  id = models.CharField(default='', primary_key=True)
+  lp = models.CharField(default='', primary_key=True)
+  idx = models.CharField(default='', unique=True)
   name = models.CharField(default='')
   type = models.CharField(default='')
   set = models.CharField(default='')
@@ -16,7 +17,7 @@ class Card(models.Model):
   rarity = models.CharField(default='')
 
 class UserInput(models.Model):
-    card = models.ForeignKey(Card, on_delete=models.CASCADE)
+    card = models.ForeignKey(Card, on_delete=models.CASCADE, to_field='idx')
     user = models.ForeignKey(User, on_delete=models.CASCADE)  
     number_owned = models.IntegerField(default = 0, validators=[MinValueValidator(0), MaxValueValidator(2137)])
     short_note = models.CharField(blank=True, null=True, max_length = 30)

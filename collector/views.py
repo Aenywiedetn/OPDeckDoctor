@@ -60,7 +60,7 @@ def load_user_inputs(request):
 
 @login_required(login_url='/authentication/login')
 def update_number_owned(request, card_id):
-    card = Card.objects.get(id=card_id)
+    card = Card.objects.get(idx=card_id)
 
     if request.method == 'POST':
         if request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -86,7 +86,7 @@ def update_number_owned(request, card_id):
 
 @login_required(login_url='/authentication/login')
 def update_short_note(request, card_id):
-    card = Card.objects.get(id=card_id)
+    card = Card.objects.get(idx=card_id)
 
     if request.method == 'POST':
         if request.headers.get('x-requested-with') == 'XMLHttpRequest':

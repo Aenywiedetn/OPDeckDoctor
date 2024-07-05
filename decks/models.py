@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
-class Card(models.Model):
+class Card(models.Model): #archaic model - not deleted because of database migration issues
   id = models.CharField(default='', primary_key=True)
   name = models.CharField(default='')
   type = models.CharField(default='')
